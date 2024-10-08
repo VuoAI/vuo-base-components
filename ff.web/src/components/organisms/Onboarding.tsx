@@ -164,7 +164,7 @@ export default function OnboardingFlow() {
       case 'intro':
         return (
           <div className={styles.onboardingIntro}>
-            <h2 className={styles.title}>{step.title}</h2>
+            <h2>{step.title}</h2>
             <p className={styles.description}>We'll learn about your goals and preferences to help build your first custom meal plan.</p>
           </div>
         );
@@ -172,8 +172,8 @@ export default function OnboardingFlow() {
       case 'goals':
         return (
           <div className={styles.onboardingMultiSelect}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>What can we help you accomplish? We'll personalize our recommendations based on your goals.</p>
+            <h2>{step.title}</h2>
+            <p> What can we help you accomplish? We'll personalize our recommendations based on your goals.</p>
             {['Lose weight', 'Hit my macros', 'Eat healthy', 'Gain weight', 'Save time'].map(goal => (
               <button
                 key={goal}
@@ -189,8 +189,8 @@ export default function OnboardingFlow() {
       case 'sex':
         return (
           <div className={styles.onboardingSingleSelect}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>What is your sex? We'll use this to estimate your daily energy needs.</p>
+            <h2>{step.title}</h2>
+            <p> What is your sex? We'll use this to estimate your daily energy needs.</p>
             {renderOption('female', 'Female', '', formData.sex === 'female', (value) => setFormData(prev => ({ ...prev, sex: value })))}
             {renderOption('male', 'Male', '', formData.sex === 'male', (value) => setFormData(prev => ({ ...prev, sex: value })))}
           </div>
@@ -199,8 +199,8 @@ export default function OnboardingFlow() {
       case 'age':
         return (
           <div className={styles.onboardingInput}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>How old are you?</p>
+            <h2>{step.title}</h2>
+            <p>How old are you?</p>
             <input
               type="number"
               name="age"
@@ -215,8 +215,8 @@ export default function OnboardingFlow() {
       case 'height':
         return (
           <div className={styles.onboardingInput}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>How tall are you?</p>
+            <h2>{step.title}</h2>
+            <p>How tall are you?</p>
             <input
               type="number"
               name="height"
@@ -231,8 +231,8 @@ export default function OnboardingFlow() {
       case 'current-weight':
         return (
           <div className={styles.onboardingInput}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>How much do you currently weigh?</p>
+            <h2>{step.title}</h2>
+            <p>How much do you currently weigh?</p>
             <input
               type="number"
               name="currentWeight"
@@ -247,8 +247,8 @@ export default function OnboardingFlow() {
       case 'goal-weight':
         return (
           <div className={styles.onboardingInput}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>What is your goal weight?</p>
+            <h2>{step.title}</h2>
+            <p>What is your goal weight?</p>
             <input
               type="number"
               name="goalWeight"
@@ -263,8 +263,8 @@ export default function OnboardingFlow() {
       case 'motivation':
         return (
           <div className={styles.onboardingSingleSelect}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>How motivated are you to make changes to your diet?</p>
+            <h2>{step.title}</h2>
+            <p>How motivated are you to make changes to your diet?</p>
             {renderOption('very-motivated', 'Very motivated', 'Ready for big changes', formData.motivation === 'very-motivated', (value) => setFormData(prev => ({ ...prev, motivation: value })))}
             {renderOption('willing-to-give-it-a-go', 'Willing to give it a go', 'Prefer moderate changes', formData.motivation === 'willing-to-give-it-a-go', (value) => setFormData(prev => ({ ...prev, motivation: value })))}
             {renderOption('small-changes-are-best', 'Small changes are best', 'Prefer to take things step by step', formData.motivation === 'small-changes-are-best', (value) => setFormData(prev => ({ ...prev, motivation: value })))}
@@ -275,8 +275,8 @@ export default function OnboardingFlow() {
       case 'activity':
         return (
           <div className={styles.onboardingSingleSelect}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>How often do you exercise?</p>
+            <h2>{step.title}</h2>
+            <p>How often do you exercise?</p>
             {renderOption('sedentary', 'Sedentary', 'No exercise, desk job', formData.activityLevel === 'sedentary', (value) => setFormData(prev => ({ ...prev, activityLevel: value })))}
             {renderOption('light-exercise', 'Light exercise', '1-2 days per week', formData.activityLevel === 'light-exercise', (value) => setFormData(prev => ({ ...prev, activityLevel: value })))}
             {renderOption('moderate-exercise', 'Moderate exercise', '3-5 days per week', formData.activityLevel === 'moderate-exercise', (value) => setFormData(prev => ({ ...prev, activityLevel: value })))}
@@ -288,8 +288,8 @@ export default function OnboardingFlow() {
       case 'mindset':
         return (
           <div className={styles.onboardingSingleSelect}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>How do you relate to the statement: "I know what I should be doing to eat healthy, but I need to find a way to do it that fits into my life"?</p>
+            <h2>{step.title}</h2>
+            <p>How do you relate to the statement: "I know what I should be doing to eat healthy, but I need to find a way to do it that fits into my life"?</p>
             {renderOption('agree', 'Agree', '', formData.mindset === 'agree', (value) => setFormData(prev => ({ ...prev, mindset: value })))}
             {renderOption('neutral', 'Neutral', '', formData.mindset === 'neutral', (value) => setFormData(prev => ({ ...prev, mindset: value })))}
             {renderOption('disagree', 'Disagree', '', formData.mindset === 'disagree', (value) => setFormData(prev => ({ ...prev, mindset: value })))}
@@ -299,8 +299,8 @@ export default function OnboardingFlow() {
       case 'speed':
         return (
           <div className={styles.onboardingSpeed}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>Based on your information, we recommend a moderate pace, but feel free to adjust!</p>
+            <h2>{step.title}</h2>
+            <p>Based on your information, we recommend a moderate pace, but feel free to adjust!</p>
             <div className={styles.onboardingSlider}>
               <span>🐢</span>
               <Slider
@@ -328,8 +328,8 @@ export default function OnboardingFlow() {
       case 'diet-plan':
         return (
           <div className={styles.onboardingSingleSelect}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>We'll start with a 1 week custom plan to help you gain weight. Which plan best suits your preferences?</p>
+            <h2>{step.title}</h2>
+            <p>We'll start with a 1 week custom plan to help you gain weight. Which plan best suits your preferences?</p>
             {[
               { name: 'Balanced', description: 'Flexible approach, thoughtful portions' },
               { name: 'Pescatarian', description: 'Seafood, healthy fats' },
@@ -346,8 +346,8 @@ export default function OnboardingFlow() {
       case 'past-experience':
         return (
           <div className={styles.onboardingSingleSelect}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>What best describes your experience with changing the way you eat?</p>
+            <h2>{step.title}</h2>
+            <p> What best describes your experience with changing the way you eat?</p>
             {renderOption('no-past-experience', 'No past experience', 'Trying to make changes for the first time', formData.pastExperience === 'no-past-experience', (value) => setFormData(prev => ({ ...prev, pastExperience: value })))}
             {renderOption('tried-before', 'Tried before', 'Giving healthy eating another shot', formData.pastExperience === 'tried-before', (value) => setFormData(prev => ({ ...prev, pastExperience: value })))}
           </div>
@@ -356,8 +356,8 @@ export default function OnboardingFlow() {
       case 'format':
         return (
           <div className={styles.onboardingSingleSelect}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>What meals would you like to plan? You can adjust this if you change your mind later!</p>
+            <h2>{step.title}</h2>
+            <p> What meals would you like to plan? You can adjust this if you change your mind later!</p>
             {renderOption('dinners', 'Dinners', 'A few dinner ideas every week', formData.format === 'dinners', (value) => setFormData(prev => ({ ...prev, format: value })))}
             {renderOption('lunches-and-dinners', 'Lunches and dinners', 'Make lunch and dinner most days', formData.format === 'lunches-and-dinners', (value) => setFormData(prev => ({ ...prev, format: value })))}
             {renderOption('every-meal', 'Every meal', 'Make breakfast, lunch, dinner every day', formData.format === 'every-meal', (value) => setFormData(prev => ({ ...prev, format: value })))}
@@ -368,8 +368,8 @@ export default function OnboardingFlow() {
       case 'allergies':
         return (
           <div className={styles.onboardingToggleList}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>Do you have any food allergies or restrictions?</p>
+            <h2>{step.title}</h2>
+            <p> Do you have any food allergies or restrictions?</p>
             {allergies.map((allergy) => (
               <div key={allergy} className={styles.onboardingToggleItem}>
                 <label htmlFor={allergy}>{allergy}</label>
@@ -388,31 +388,18 @@ export default function OnboardingFlow() {
       case 'dislikes':
         return (
           <div className={styles.onboardingMultiSelect}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>Are there any foods you dislike?</p>
+            <h2>{step.title}</h2>
+            <p> Are there any foods you dislike?</p>
             <input
               type="text"
-              placeholder="Search for foods"
+              placeholder="Add a food you dislike"
               onChange={(e) => {
                 const value = e.target.value.toLowerCase();
                 console.log('Searching for:', value);
               }}
               className={styles.onboardingSearchInput}
             />
-            {formData.dislikes.length > 0 && (
-              <div className={styles.onboardingSelectedItems}>
-                {formData.dislikes.map((dislike) => (
-                  <button
-                    key={dislike}
-                    className={styles.onboardingSelectedItem}
-                    onClick={() => handleMultiSelect(dislike, 'dislikes')}
-                  >
-                    {dislike} ×
-                  </button>
-                ))}
-              </div>
-            )}
-            <h3>Common Dislikes</h3>
+            <h4>Common Dislikes</h4>
             <div className={styles.onboardingCommonItems}>
               {commonDislikes.map((dislike) => (
                 <button
@@ -430,8 +417,8 @@ export default function OnboardingFlow() {
       case 'cuisines':
         return (
           <div className={styles.onboardingCuisinePreferences}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>Are there any cuisines you especially like or dislike?</p>
+            <h2>{step.title}</h2>
+            <p> Are there any cuisines you especially like or dislike?</p>
             {cuisines.map((cuisine) => (
               <div key={cuisine} className={styles.onboardingCuisineItem}>
                 <span>{cuisine}</span>
@@ -457,8 +444,8 @@ export default function OnboardingFlow() {
       case 'pantry':
         return (
           <div className={styles.onboardingSingleSelect}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>How well-stocked is your kitchen right now?</p>
+            <h2>{step.title}</h2>
+            <p> How well-stocked is your kitchen right now?</p>
             {[
               { value: "empty", label: "Empty", description: "Don't have anything" },
               { value: "basic", label: "Basic", description: "Only have oil, salt, and pepper" },
@@ -473,8 +460,8 @@ export default function OnboardingFlow() {
       case 'cooking-skills':
         return (
           <div className={styles.onboardingSingleSelect}>
-            <h2 className={styles.title}>{step.title}</h2>
-            <p className={styles.description}>How would you describe your cooking skills?</p>
+            <h2>{step.title}</h2>
+            <p> How would you describe your cooking skills?</p>
             {[
               { value: "novice", label: "Novice", description: '"I can cook boxed mac and cheese"' },
               { value: "basic", label: "Basic", description: '"I only cook simple recipes"' },
