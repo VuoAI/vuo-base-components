@@ -2,6 +2,7 @@ import {
   Route,
   Routes,
   BrowserRouter as Router,
+  Navigate
 } from 'react-router-dom';
 import Login from "./components/pages/Login";
 import ShoppingCart from "./components/pages/ShoppingCart";
@@ -18,7 +19,7 @@ import FlavourFlowPage from './components/pages/FlavourFlowPage';
 import FlavourFlowResultPage from './components/pages/FlavourFlowResultPage';
 import OnboardingFlow from './components/organisms/Onboarding';
 import { AppContextProvider } from './context/AppContext';
-
+import { QuizOrganism } from './components/organisms/QuizOrganism';
 
 const App = () => {
   return (
@@ -29,21 +30,18 @@ const App = () => {
           <Router>
           <Navbar/>
             <Routes >
-              <Route>
-                <Route path='/' element={ <Login />} />
-                <Route path='/home' element={<Home />} />
-                <Route path='/home/quest' element={<Quest />} />
-                <Route path='/meal-map' element={<MealMap />} />
-                <Route path='/shopping-cart' element={<ShoppingCart />} />
-                <Route path='/profile' element={<ProfilePage />} />
-                <Route path='/flavour-flow' element={<FlavourFlowPage />} />
-                <Route path='/flavour-flow/results' element={<FlavourFlowResultPage />} />
-                <Route path='/onboarding' element={<OnboardingFlow />} />
-                <Route path="*" element={<NotFoundPage />} />
-              </Route>
-              {/* <Route>
-                <Route path='/login' element={<Login />} />
-                </Route> */}
+              <Route path="/home" element={<Home />} />
+              {/* Redirect root path to /home */}
+              <Route path="/" element={<Navigate replace to="/home" />} />
+              <Route path='/home/quest' element={<Quest />} />
+              <Route path='/meal-map' element={<MealMap />} />
+              <Route path='/shopping-cart' element={<ShoppingCart />} />
+              <Route path='/profile' element={<ProfilePage />} />
+              <Route path='/flavour-flow' element={<FlavourFlowPage />} />
+              <Route path='/flavour-flow/results' element={<FlavourFlowResultPage />} />
+              <Route path='/onboarding' element={<OnboardingFlow />} />
+              <Route path="/quiz" element={<QuizOrganism />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
             <BottomNavigation/>
           </Router>

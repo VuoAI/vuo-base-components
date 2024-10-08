@@ -1,0 +1,71 @@
+.quizOrganism {
+    background-color: var(--surface-primary);
+    border-radius: var(--radius-8);
+    padding: var(--space-24);
+    margin-bottom: var(--space-32);
+  }
+  
+  .quizTitle {
+    color: var(--text-primary);
+    margin-bottom: var(--space-16);
+  }
+  
+  .quizNavigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-24);
+  }
+  
+  .quizQuestion {
+    margin-bottom: var(--space-24);
+  }
+  
+  .questionText {
+    @extend h3 !optional;
+    color: var(--text-primary);
+    margin-bottom: var(--space-16);
+  }
+  
+  .sliderInput {
+    width: 100%;
+  }
+  
+  .radioGroup,
+  .checkboxGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  
+  .textInput {
+    width: 100%;
+    padding: var(--space-8);
+    border: 1px solid var(--text-secondary);
+    border-radius: var(--radius-4);
+    background-color: var(--surface-secondary);
+    color: var(--text-primary);
+  }
+  
+  .quizResult {
+    background-color: var(--surface-primary);
+    border-radius: var(--radius-8);
+    padding: var(--space-24);
+  }
+  
+  .resultTitle {
+    color: var(--text-primary);
+    margin-bottom: var(--space-16);
+  }
+  
+  .resultScore,
+  .resultPercentage {
+    color: var(--text-primary);
+    margin-bottom: var(--space-8);
+  }
+  
+  .scoreValue,
+  .totalQuestions,
+  .percentageValue {
+    font-weight: 700;
+    color: var(--surface-brand-green);
+  }

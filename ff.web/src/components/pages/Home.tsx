@@ -20,6 +20,11 @@ const Home = () => {
         // Save the target route to session storage before navigating
         navigateWithState('/onboarding');
     }
+
+    const goToQuiz = () => {
+        // Save the target route to session storage before navigating
+        navigateWithState('/quiz');
+    }
   
     return (
         <Page>
@@ -49,7 +54,11 @@ const Home = () => {
                 </Section>
 
             }
-
+            <Section>
+                <h2>Test your food knowledge!</h2>
+                <p>Take our fun food quiz and see how much you know.</p>
+                <Button onClick={goToQuiz}>Start Quiz</Button>
+            </Section>
         </Page>
     );
   };
