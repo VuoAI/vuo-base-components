@@ -61,12 +61,12 @@ const BottomNavigation = () => {
     };
   
     if(isVisible) return (
-      <div>
-          <TabBar activeKey={pathname} onChange={handleTabChange}>
-            {tabs().map(item => (
-              <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
-            ))}
-          </TabBar>
+      <div style={{ position: 'sticky', bottom: 0, left: 0, right: 0, zIndex: 1000 }}>
+        <TabBar activeKey={pathname} onChange={handleTabChange}>
+          {tabs().map(item => (
+            <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
+          ))}
+        </TabBar>
       </div>
     );
 
