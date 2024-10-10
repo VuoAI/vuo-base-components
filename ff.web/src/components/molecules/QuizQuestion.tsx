@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Input from '../atoms/Input';
-import Slider from '../atoms/Slider';
 import styles from '../organisms/Quiz.module.scss';
 
 interface QuizQuestionProps {
@@ -9,6 +8,8 @@ interface QuizQuestionProps {
     type: string;
     question: string;
     options?: string[];
+    min?: number;
+    max?: number;
   };
   onAnswer: (answer: any) => void;
 }
@@ -25,23 +26,34 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({ question, onAnswer }
     switch (question.type) {
       case 'slider':
         return (
-          <Slider
-            className={styles.sliderInput}
-            min={0}
-            max={30}
-            onChange={(value) => handleAnswer(value)}
-            value={answer as number}
-          />
+          <div className={styles.sliderContainer}>
+            <input
+              type="range"
+              className={styles.sliderInput}
+              min={question.min || 0}
+              max={question.max || 30}
+              value={answer as number}
+              onChange={(e) => handleAnswer(Number(e.target.value))}
+              aria-label={`Slider for ${question.question}`}
+            />
+            <div className={styles.sliderLabels}>
+              <span>{question.min || 0}</span>
+              <span>{question.max || 30}</span>
+            </div>
+            <div className={styles.sliderValue} aria-live="polite">{answer}</div>
+          </div>
         );
       case 'single-choice':
       case 'multiple-choice':
         return (
-          <div className={styles.optionsContainer}>
+          <div className={styles.optionsContainer} role="radiogroup" aria-labelledby={`question-${question.id}`}>
             {question.options?.map((option, index) => (
               <button
                 key={index}
                 className={`${styles.optionButton} ${answer === option ? styles.selected : ''}`}
                 onClick={() => handleAnswer(option)}
+                aria-checked={answer === option}
+                role="radio"
               >
                 {option}
               </button>
@@ -55,6 +67,7 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({ question, onAnswer }
             onChange={(e) => handleAnswer(e.target.value)} 
             value={answer as string} 
             placeholder="Enter your answer"
+            aria-labelledby={`question-${question.id}`}
           />
         );
     }
@@ -62,7 +75,7 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({ question, onAnswer }
 
   return (
     <div className={styles.quizQuestion}>
-      <h3 className={styles.questionText}>{question.question}</h3>
+      <h3 className={styles.questionText} id={`question-${question.id}`}>{question.question}</h3>
       {renderQuestionInput()}
     </div>
   );
