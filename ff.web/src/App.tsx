@@ -22,6 +22,7 @@ import FlavourFlowPage from './components/pages/FlavourFlowPage';
 import FlavourFlowResultPage from './components/pages/FlavourFlowResultPage';
 import OnboardingFlow from './components/organisms/Onboarding';
 import { AppContextProvider } from './context/AppContext';
+import { FlavourFlowProvider } from "./context/FlavourFlowContext";
 
 const queryClient = new QueryClient();
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
     <>
     <AppContextProvider>
       <QueryClientProvider client={queryClient}>
+       <FlavourFlowProvider>
         <ThemeProvider>
           <SafeArea position="top" />
             <Router>
@@ -55,6 +57,7 @@ const App = () => {
             </Router>
             <SafeArea position="bottom" />
           </ThemeProvider>
+         </FlavourFlowProvider>
         </QueryClientProvider>
       </AppContextProvider>
     </>

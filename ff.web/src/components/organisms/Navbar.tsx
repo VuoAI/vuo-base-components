@@ -12,6 +12,7 @@ export default function Navbar({hideBackButton = false}) {
   }, [])
 
   const location = useLocation()
+  const navigate = useNavigate();
   const {pathname} = location
   const hideOnRoutes = ['/'];
   const isVisible = !hideOnRoutes.includes(location.pathname);
@@ -32,7 +33,10 @@ export default function Navbar({hideBackButton = false}) {
     <div>
       <NavBar
         back={hideBackButton ? null : ""}
-        onBack={() => goBack()}
+        onBack={() => {
+          goBack();
+          navigate(-1);
+        }}
       >{getTitle()}</NavBar>
     </div>
   )

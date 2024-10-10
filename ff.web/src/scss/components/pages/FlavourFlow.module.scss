@@ -1,0 +1,20 @@
+.flavourFlowContainer {
+  display: flex;
+  background-color: var(--surface-brand-orange-medium);
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+.resultButtonContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1.5em 3em;
+}
+
+.resultContainer {
+  background-color: var(--surface-brand-orange-light);
+  scrollbar-width: thin;
+  overflow-y: auto;
+}
