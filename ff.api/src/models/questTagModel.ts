@@ -9,7 +9,7 @@ const QuestTagSchema: Schema = new Schema({
     title: { type: String, required: true }
 });
 
-const QuestTag = mongoose.model<IQuestTag>('QuestTag', QuestTagSchema, 'QuestTags');
+const QuestTag = mongoose.model<IQuestTag>('QuestTag', QuestTagSchema);
 
 export default QuestTag;
 export { IQuestTag };

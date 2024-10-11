@@ -7,6 +7,10 @@ dotenv.config();
 const connectToDatabase = async () => {
   try {
     await mongoose.connect(process.env.VITE_MONGODB_URI as string);
+    const db = mongoose.connection.db;
+    const collections = await db.listCollections().toArray();
+    console.log("Connected to database:", db.databaseName);
+    console.log("Collections in the database:", collections.map(col => col.name));
   } catch (error) {
     console.error(
       "Error connecting to MongoDB:",
