@@ -2,8 +2,8 @@ import LLMPrompt from "../workers/LLMPrompts";
 
 class FFCRewHttpService {
 
-  static apiUrl = process.env.OPEN_AI_API_URL
-  static apiKey = process.env.OPEN_AI_API_KEY
+  static apiUrl = process.env.OPEN_AI_API_URL!
+  static apiKey = process.env.OPEN_AI_API_KEY!
 
   async sendHttpRequest<T extends Record<string, string | number>, TResult>(
     prompt: LLMPrompt<T, TResult>,
