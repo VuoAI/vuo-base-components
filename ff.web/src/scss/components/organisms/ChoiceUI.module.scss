@@ -1,0 +1,174 @@
+.staticContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 30rem;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  height: 100%;
+  gap: var(--space-32);
+  align-items: center;
+}
+
+.card,
+.cardOverlayActive,
+.cardImage,
+.cardDeck {
+  border-radius: var(--radius-8);
+  height: 23em;
+}
+
+.card,
+.cardDeck {
+  position: absolute;
+  cursor: pointer;
+  width: 14em;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  z-index: 500;
+  background-color: var(--color-black);
+}
+
+.firstCard {
+  left: 50%;
+  transform: translate(10%, -50%);
+}
+
+.secondCard {
+  left: 50%;
+  transform: translate(-110%, -50%);
+}
+
+.cardDeck {
+  background-color: var(--color-white);
+  z-index: -10;
+}
+
+.firstCardDeck {
+  left: 50%;
+  transform: translate(15%, -47%);
+}
+
+.secondCardDeck {
+  left: 50%;
+  transform: translate(-105%, -47%);
+}
+
+.cardTitle {
+  position: absolute;
+  top: 5%;
+  z-index: 100;
+  padding: 0.25em 1em 0.25em;
+  background-color: var(--color-white);
+  border-radius: 0 var(--radius-32) var(--radius-32) 0;
+
+  p {
+    font-size: 16px;
+    color: var(--color-black);
+  }
+}
+
+.cardButton,
+.cardButtonActive {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -5%);
+  -ms-transform: translate(-50%, -5%);
+  transform: translate(-50%, -5%);
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-32);
+  transition:
+    transform 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}
+
+.cardButton {
+  background-color: var(--color-white);
+  transition: transform 0.3s ease;
+  transform-origin: top;
+  z-index: 100;
+}
+
+.cardButtonActive {
+  background-color: var(--surface-brand-orange-dark);
+  z-index: 110;
+}
+
+.cardButtonIcon,
+.cardButtonIconActive {
+  stroke-width: 1.5;
+  fill: transparent;
+  width: auto;
+  height: 2.25rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.cardButtonIcon {
+  stroke: var(--color-black);
+}
+
+.cardButtonIconActive {
+  stroke: var(--color-white);
+}
+
+.cardImage {
+  display: block;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.cardOverlayActive {
+  position: absolute;
+  z-index: 70;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5 !important;
+  transition: 0.5s ease;
+}
+
+.cardOverlayActive {
+  background-color: var(--surface-brand-orange-dark);
+}
+
+.cardText {
+  display: none;
+}
+
+.cardTextActive {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+  top: 42%;
+  left: 52%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--color-white);
+  border: 0.3rem solid var(--color-white);
+  border-radius: var(--radius-8);
+  padding: 0.15rem 0.3rem;
+  rotate: -15deg;
+  text-transform: uppercase;
+  font-family: "Omnes", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.4;
+}
