@@ -1,0 +1,189 @@
+.sneak_peek_body {
+    color: white;
+}
+
+.headerImage {
+    height: 240px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.tooltip_container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.title {
+    font-size: 24px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 18px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.result {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.description {
+    font-size: 18px;
+    width: 50%;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.text {
+    color: var(--white);
+    font-size: 1.0em;
+    font-weight: 600;
+    display: block;
+    white-space: pre-line;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2c2c2e;
+    width: fit-content;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.steak_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    position: relative;
+    width: 200px;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+}
+
+.steak_half {
+    position: relative;
+    width: 100%;
+    height: 50px;
+}
+
+.steak_half_raw {
+    width: 100%;
+    height: 100%;
+    background-color: #b83a37;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.steak_half_cooked {
+    width: 100%;
+    height: 100%;
+    background-color: #a47361;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+// Styles for the top and bottom sear of the steak
+.steak_half_sear_top,
+.steak_half_sear_bottom {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    position: absolute;
+    left: 0;
+    border: 4px solid rgb(84, 35, 14);
+}
+
+.steak_half_sear_top {
+    top: 0;
+    border-bottom: none;
+}
+
+.steak_half_sear_bottom {
+    bottom: 0;
+    border-top: none;
+}
+
+.steak_half:first-child {
+
+    .steak_half_raw,
+    .steak_half_cooked,
+    .steak_half_sear_top {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+}
+
+.steak_half:last-child {
+
+    .steak_half_raw,
+    .steak_half_cooked,
+    .steak_half_sear_bottom {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+}
+
+.controls_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.slider_container {
+    width: 90%;
+}
+
+.button_container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flipped {
+    transform: rotateZ(180deg);
+}
+
+.doneness_result_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .result {
+        padding: 0;
+        margin: 0.2em;
+    }
+}
