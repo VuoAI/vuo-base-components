@@ -13,8 +13,8 @@ export interface Recipe {
   resources: Resource[];
   name: string;
   media?: Media;
-  state: RecipeState;
+  state?: RecipeState;
   steps: Step[];
   description: string;
-  servingSize: string
+  servingSize?: string
 }

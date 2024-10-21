@@ -7,7 +7,7 @@ export interface RecipeTool {
 }
 
 interface StepMedia {
-  id: string;
+  id?: string;
   image?: string;
   video?: string;
 }
@@ -15,9 +15,9 @@ interface StepMedia {
 export interface Skill {
   id: string;
   name: string;
-  challenge_rating: number;
-  skill_category: string;
-  difficulty_level: string;
+  challenge_rating?: number;
+  skill_category?: string;
+  difficulty_level?: string;
 };
 
 export enum HighlightType {
@@ -37,17 +37,17 @@ export interface ReviewStatus {
 export type CombinedSkill = Partial<Skill> & Pick<Skill, 'challenge_rating' | 'name'>
 
 export interface Step {
-  id: string;
+  id?: string;
   attachable: boolean;
   downtime?: number;
   highlight?: HighlightType;
   media?: StepMedia;
   rawData?: string;
   resources?: Resource[];
-  reviewStatus: ReviewStatus;
-  skills: Skill[];
+  reviewStatus?: ReviewStatus;
+  skills?: Skill[];
   subSteps?: Step[];
-  suggestedMedias: StepMedia[];
+  suggestedMedias?: StepMedia[];
   text: string;
   tools?: RecipeTool[]
 };
