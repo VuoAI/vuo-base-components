@@ -10,21 +10,33 @@ import QuestCardCategory from "@vuo/organisms/QuestCardCategory";
 import QuestLine from "@vuo/organisms/QuestLine";
 import styles from "./QuestSelection.module.scss";
 import Page from "../templates/Page";
-
+import useStackNavigator from "@vuo/utils/StackNavigator";
 
 const QuestSelection = observer(() => {
+  const {navigateWithState} = useStackNavigator();
   const navigate = useNavigate();
 
   const [viewModel] = useState<QuestBrowseViewModel>(
     () => new QuestBrowseViewModel(),
   );
-console.log(JSON.stringify(viewModel.data))
+
+
   const onSelectQuest = (questId: string) => {
-    navigate(`/quests/${questId}/intro`);
+    if (!JSON.parse(localStorage.getItem("SessionDataStore") ?? "").token) {
+      viewModel.createShadowAccount()
+      .then(() => {
+        navigate (`${questId}/intro`); //TODO make the stacknavigator handle cases, when the url contains questid
+        // save id to local storage
+      }).catch(() => {
+        // TODO: handle error states
+      })
+    } else {
+      navigate (`${questId}/intro`);
+    }
   };
 
   const onSelectQuestLine = (id: string) => {
-    navigate(`/questline/${id}`);
+    navigateWithState(`/questline/${id}`);
   };
 
   const isError = !viewModel.loading && viewModel.errors && Object.keys(viewModel.errors).length > 0

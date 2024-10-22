@@ -7,6 +7,7 @@ class SessionDataStore {
   shadowAccount: boolean = false
   username: string = ""
   user?: ChannelUser = undefined;
+  profile: any = undefined; //TODO type check
 
   constructor() {
     makeAutoObservable(this);

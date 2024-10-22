@@ -4,14 +4,14 @@ import Quest, { QuestState } from "../models/questModel";
 
 const getQuest = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const user = req.user
   try {
     const quest = await Quest
       .findOne({
         _id: id,
         $or: [
           { state: { $ne: QuestState.Draft } },
-          { state: QuestState.Draft, creator: user.id }
+          // { state: QuestState.Draft, creator: user.id }
+          { state: QuestState.Draft}
         ]
       })
       .populate('tags')

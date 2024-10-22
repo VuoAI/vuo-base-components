@@ -22,6 +22,9 @@ import FlavourFlowPage from './components/pages/FlavourFlowPage';
 import FlavourFlowResultPage from './components/pages/FlavourFlowResultPage';
 import OnboardingFlow from './components/organisms/Onboarding';
 import { AppContextProvider } from './context/AppContext';
+import QuestIntro from './components/pages/QuestIntro';
+import QuestPlay from './components/pages/QuestPlay';
+import QuestOutro from './components/pages/QuestOutro';
 
 const queryClient = new QueryClient();
 const App = () => {
@@ -37,7 +40,10 @@ const App = () => {
                 <Route>
                   <Route path='/' element={ <Login />} />
                   <Route path='/home' element={<Home />} />
-                  <Route path='/home/quest' element={<QuestSelection />} />
+                  <Route path='/home/quests' element={<QuestSelection />} />
+                  <Route path='/home/quests/:id/intro' element={<QuestIntro />} />
+                  <Route path='/home/quests/:id/play' element={<QuestPlay />} />
+                  <Route path='/home/quests/:id/outro' element={<QuestOutro />} />
                   {/* TODO figuring out quest navigation */}
                   <Route path='/meal-map' element={<MealMap />} />
                   <Route path='/shopping-cart' element={<ShoppingCart />} />

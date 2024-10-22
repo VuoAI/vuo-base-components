@@ -1,23 +1,54 @@
-import { useLocation, useNavigate } from "react-router-dom";
 import Button from "../atoms/Button";
 import Page from "../templates/Page";
 import useStackNavigator from "@vuo/utils/StackNavigator";
 import Section from "../atoms/Section";
 import { useAppContext } from "@vuo/context/AppContext";
+import { create } from "domain";
+import QuestBrowseViewModel from "@vuo/viewModels/QuestBrowseViewModel";
+import { useState } from "react";
 
 const Home = () => {
 
     const { navigateWithState } = useStackNavigator();  // Initialize navigateWithState function
     const { isOnboardingComplete } = useAppContext()
+    const [viewModel] = useState<QuestBrowseViewModel>(
+        () => new QuestBrowseViewModel(),
+      );
+
+    const userAccount = JSON.parse(localStorage.getItem('SessionDataStore')).user
 
     const goToQuest = () => {
         // Save the target route to session storage before navigating
-        navigateWithState('/home/quest');
+        navigateWithState('/home/quests');
     };
 
-    const goToOnboading = () => {   
+    const goToOnboading = () => {  
+        //creating shadow account
+        //check if sessiondatastore has shadowuser account 
+        //if yes then navigate to onboarding
         // Save the target route to session storage before navigating
-        navigateWithState('/onboarding');
+        if(
+            userAccount?.shadowAccount === true
+        ) {
+            navigateWithState('/onboarding');
+        } else {
+            alert("creating shadow account")
+            navigateWithState('/onboarding');
+            viewModel.createShadowAccount()
+            .then((shadowAccountUserId) => {
+                //use the shadowAccountUserId to create an empty profile
+                viewModel.createUserProfile(shadowAccountUserId)
+            })
+            .catch((error: Error) => {
+                console.error(error)
+            })
+            .finally(() => {
+                //TODO handle loading state, then navigatie
+                navigateWithState('/onboarding');
+            })
+        }
+        //if no then
+
     }
   
     return (

@@ -1,6 +1,5 @@
 import { RedisOptions } from "bullmq";
 
-console.log("REDIIIIIIS", process.env.VITE_REDIS_HOST);
 const options: RedisOptions = {
   host: process.env.VITE_REDIS_HOST!,
   port: parseInt(process.env.VITE_REDIS_PORT!),

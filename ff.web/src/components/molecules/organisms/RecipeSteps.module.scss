@@ -1,0 +1,81 @@
+.textarea {
+  border: 0;
+  font-family: inherit;
+  padding: 8px;
+  resize: none;
+  width: 100%;
+}
+
+.nodeContainer {
+  display: flex;
+  gap: 4px;
+}
+
+.approvedContainer {
+  opacity: 0.6;
+  // color: green;
+}
+
+.approvedTitleContainer {
+  width: 100%;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.actionbuttonBusy {
+  background-color: #ddd; /* Example: change background color */
+  cursor: not-allowed;    /* Change cursor to indicate it's busy */
+  position: relative;     /* Necessary for the spinner positioning */
+}
+
+/* Optional: Adding a spinner icon */
+.actionbuttonBusy::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 2px solid transparent;
+  border-top-color: #333;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to { transform: translateY(-50%) rotate(360deg); }
+}
+
+.actionbutton {
+  font-size: 1.4em;
+  height: 36px;
+  position: relative;
+  width: 36px;
+}
+
+.actionbutton .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  transform: translateX(calc(-50% - 6px));
+  bottom: 125%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.actionbutton:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
