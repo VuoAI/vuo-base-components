@@ -1,27 +1,25 @@
-import React from 'react';
+import { QuizData, UserAnswer } from '@vuo/models/QuizTypes';
 import styles from '../organisms/Quiz.module.scss';
-
-interface QuizData {
-  questions: Array<{
-    correctAnswer: string | number;
-  }>;
-}
-
-interface UserAnswer {
-  answer: string | number;
-}
 
 interface QuizResultProps {
   quizData: QuizData;
   userAnswers: UserAnswer[];
 }
 
-export const QuizResult: React.FC<QuizResultProps> = ({ quizData, userAnswers }: QuizResultProps) => {
+export default function QuizResult({ quizData, userAnswers }: QuizResultProps) {
   const calculateScore = () => {
     let score = 0;
     quizData.questions.forEach((question, index) => {
-      if (userAnswers[index]?.answer === question.correctAnswer) {
-        score++;
+      const userAnswer = userAnswers[index]?.answer;
+      const {correctAnswer} = question;
+
+      if (Array.isArray(userAnswer) && Array.isArray(correctAnswer)) {
+        if (userAnswer.length === correctAnswer.length &&
+            userAnswer.every((item) => (correctAnswer as (string | number)[]).includes(item))) {
+          score += 1;
+        }
+      } else if (userAnswer === correctAnswer) {
+        score += 1;
       }
     });
     return score;
@@ -36,4 +34,4 @@ export const QuizResult: React.FC<QuizResultProps> = ({ quizData, userAnswers }:
       <p>Percentage: {((score / totalQuestions) * 100).toFixed(2)}%</p>
     </div>
   );
-};
+}

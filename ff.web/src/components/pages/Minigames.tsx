@@ -664,12 +664,9 @@ const Minigames = observer(() => {
     const games = [
         { name: "Virtual Sear", component: <VirtualSear allowPlayAgain /> },
         { name: "Cut Guessr", component: <CutGuessr allowPlayAgain /> },
-        { name: "Cut Guessr (Cow)", component: <CutGuessr allowPlayAgain presetAnimal="Cow" /> },
-        { name: "Cut Guessr (Pig)", component: <CutGuessr allowPlayAgain presetAnimal="Pig" /> },
-        { name: "Cut Guessr (Chicken)", component: <CutGuessr allowPlayAgain presetAnimal="Chicken" /> },
         { name: "Conversation Starter", component: <ConversationStarter allowReplay /> },
         { name: "Ingredient Match", component: <IngredientMatch allowReplay recipe={mockupRecipe} /> },
-        { name: "Quiz", component: <QuizOrganism /> },
+        { name: "Quiz", component: <QuizOrganism /> }
     ];
 
     const renderGameButtons = () => (
