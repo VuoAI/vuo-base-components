@@ -9,15 +9,15 @@ import {
   PlayerQuestStep,
   StepState,
 } from "@vuo/models/PlayerQuest";
-import Page from "@vuo/atoms/Page";
+import Page from "@vuo/templates/Page";
 import QuestPlayViewModel from "@vuo/viewModels/QuestPlayViewModel";
-import doneSoundFile from '@assets/fixfood/done2.mp3';
-import challengeDoneSoundFile from '@assets/fixfood/challenge_done.mp3';
-import questDoneSoundFile from '@assets/fixfood/mission_completed.mp3'
+import doneSoundFile from '@assets/sounds/done2.mp3';
+import challengeDoneSoundFile from '@assets/sounds/challenge_done.mp3';
+import questDoneSoundFile from '@assets/sounds/mission_completed.mp3'
 
-import QuestTask from "../../../../../web-monolith/ff.web/src/components/organisms/QuestTask";
-import QuestProgressBar from "../../../../../web-monolith/ff.web/src/components/molecyles/QuestProgressBar";
-import QuestChallenge from "../../../../../web-monolith/ff.web/src/components/organisms/QuestChallenge";
+import QuestTask from "../organisms/QuestTask";
+import QuestProgressBar from "../molecules/QuestProgressBar";
+// import QuestChallenge from "../organisms/QuestChallenge";
 
 
 const QuestPlay = observer(() => {
@@ -47,7 +47,7 @@ const QuestPlay = observer(() => {
 
     if (viewModel.playerQuest?.state === PlayerQuestState.completed) {
       questDoneSound.play()
-      navigate(`/playerQuests/${viewModel.playerQuest!.id}/outro`);
+      navigate(`/home/quests/${viewModel.playerQuest!.id}/outro`);
     }
 
     const stepId = viewModel.currentStep?.id;
@@ -147,10 +147,10 @@ const QuestPlay = observer(() => {
                 >
                   {step.claimedBy && step.claimedBy?.id === viewModel.currentUser?.id && step.state === StepState.challengeAccepted ? (
                     <div>
-                      <QuestChallenge
+                      {/* <QuestChallenge
                         steps={step.subSteps || []}
                         onStepDone={onSubStepDone}
-                      />
+                      /> */}
                     </div>
                   ) : (
                     <QuestTask

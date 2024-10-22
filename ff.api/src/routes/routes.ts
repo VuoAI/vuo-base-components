@@ -1,4 +1,4 @@
-import express from "express";
+import express from "express"; 
 import multer from "multer";
 
 import {
@@ -44,6 +44,7 @@ import adminAuthMiddleware from "../middleware/adminAuthMiddleware";
 import { authenticateAdmin } from "../controllers/admin/authenticationController";
 import { getSessionData } from "../controllers/multiplayerController";
 import { getMealMapRecipes } from "../controllers/mealMapController";
+import { createUserProfile, deleteUserProfile, getUserProfile, updateUserProfile } from "../controllers/userProfileController";
 
 const router = express.Router();
 const upload = multer({ dest: 'uploads/' });
@@ -67,6 +68,7 @@ router.get("/sneakPeekQuests/:url", getSneakPeekQuests);
 // Quests routes
 router.get("/quests", getQuests)
 router.get("/quests/:id", authMiddleware, getQuest)
+// router.get("/quests/:id", getQuest)
 
 // Player routes
 router.get("/playerQuests/me", authMiddleware, getCurrentPlayerQuests)
@@ -108,5 +110,12 @@ router.patch("/admin/recipes/:id/publish", adminAuthMiddleware, publishRecipe)
 
 // mealmap routes
 router.get("/mealmap/recipes", getMealMapRecipes);
+
+//user profile router
+
+router.get("/profile/:id", getUserProfile);
+router.post("/profile/create", createUserProfile);
+router.patch("/profile/update", updateUserProfile);
+router.delete("/profile/delete", deleteUserProfile);
 
 export default router;

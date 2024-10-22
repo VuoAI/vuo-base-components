@@ -1,0 +1,28 @@
+.container {
+  margin-top: 16px;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.barHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 1.5em;
+  word-wrap: break-word;
+  color: var(--white);
+}
+
+.closeButton {
+  // align-self: flex-start;
+  background-color: var(--gray-500);
+  border: none;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}

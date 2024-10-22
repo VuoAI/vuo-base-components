@@ -1,0 +1,54 @@
+$bounce: cubic-bezier(.34, 1.2, .35, 1);
+
+.container {
+  transform: skewY(-5deg);
+  transform-origin: top right;
+}
+
+.title_odd {
+  animation-name: screenFlyInFromLeft;
+  animation-delay: .0s;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: $bounce;
+  background-color: var(--blue);
+  color: var(--white);
+  line-height: 1 !important;
+  padding: 16px 16px;
+  opacity: 0;
+}
+
+.title_even {
+  animation-name: screenFlyInFromRight;
+  animation-delay: .0s;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: $bounce;
+  background-color: var(--blue);
+  color: var(--white);
+  line-height: 1 !important;
+  padding: 16px 16px;
+  opacity: 0;
+}
+
+@keyframes screenFlyInFromLeft {
+  from {
+    transform: translateX(-100vh);
+  }
+
+  to {
+    transform: translateX(0vh);
+    opacity: 1;
+  }
+}
+
+@keyframes screenFlyInFromRight {
+  from {
+    transform: translateX(100vh);
+  }
+
+  to {
+    transform: translateX(0vh);
+    opacity: 1;
+  }
+}

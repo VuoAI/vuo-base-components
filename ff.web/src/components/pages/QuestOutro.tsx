@@ -2,17 +2,18 @@ import { FormEvent, useEffect, useState, CSSProperties, useRef } from 'react';
 import { observer } from 'mobx-react-lite'
 import { useNavigate, useParams } from 'react-router-dom';
 
-import AchievementOutro from '@vuo/molecyles/AchievementOutro';
+// import AchievementOutro from '@vuo/molecyles/AchievementOutro';
 import Button from '@vuo/atoms/Button';
 import Icon from '@vuo/atoms/Icon';
 import Chip from '@vuo/atoms/Chip';
-import Modal from '@vuo/atoms/Modal'
-import Page from '@vuo/atoms/Page'
-import Popup from '@vuo/atoms/Popup'
+// import Modal from '@vuo/atoms/Modal'
+// import Page from '@vuo/atoms/Page'
+// import Popup from '@vuo/atoms/Popup'
 import QuestOutroViewModel from '@vuo/viewModels/QuestOutroViewModel';
-import SkewedTitleList from '../../../../../web-monolith/ff.web/src/components/molecyles/SkewedTitleList';
 
 import style from './QuestOutro.module.scss'
+import SkewedTitleList from '../molecules/SkewedTitleList';
+import Page from '../templates/Page';
 
 const QuestOutro = observer(() => {
 
@@ -98,18 +99,18 @@ const QuestOutro = observer(() => {
     };
   }, [viewModel.playerAchievementsForCompletedQuest]);
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    viewModel.registerShadowAccount(username).then(() => {
-      Modal.alert({
-        content: 'Account registered!',
-        confirmText: 'Nice!',
-        onConfirm: () => {
-          navigate('/quests')
-        }
-      })
-    })
-  };
+  // const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   viewModel.registerShadowAccount(username).then(() => {
+  //     Modal.alert({
+  //       content: 'Account registered!',
+  //       confirmText: 'Nice!',
+  //       onConfirm: () => {
+  //         navigate('/quests')
+  //       }
+  //     })
+  //   })
+  // };
 
   const onContinue = () => {
     navigate(-3)
@@ -152,7 +153,7 @@ const QuestOutro = observer(() => {
                   <div
                     className={`${style.outro_achievements_scroller_box}`}
                     key={playerAchievement.achievement.name}>
-                    <AchievementOutro playerAchievement={playerAchievement} />
+                    {/* <AchievementOutro playerAchievement={playerAchievement} /> */}
                   </div>
                 )
                 )}
@@ -209,7 +210,7 @@ const QuestOutro = observer(() => {
               </>
             )}
           </div>
-          <Popup
+          {/* <Popup //TODO enable
             bodyStyle={{
               padding: '24px',
               textAlign: 'center',
@@ -240,7 +241,7 @@ const QuestOutro = observer(() => {
                 Register
               </Button>
             </form>
-          </Popup>
+          </Popup> */}
         </>
       )}
       {!viewModel.playerQuest && (

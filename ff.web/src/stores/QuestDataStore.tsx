@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { makePersistable } from "mobx-persist-store"
 import { Quest } from "@vuo/models/Quest";
+import { ChannelUser } from "./WebSocketStore";
 
 export interface CategoryQuest {
   title: string;
@@ -10,6 +11,12 @@ export interface CategoryQuest {
 class QuestDataStore {
   data?: CategoryQuest[] = undefined;
 
+  //TODO separate user data store maybe?
+  token?: string = undefined;
+  shadowAccount: boolean = false
+  username: string = ""
+  user?: ChannelUser = undefined;
+
   constructor() {
     makeAutoObservable(this);
     this.init();
@@ -18,7 +25,9 @@ class QuestDataStore {
   private async init() {
     await makePersistable(this, {
       name: "QuestDataStore",
-      properties: ["data"],
+      // properties: ["data"],
+      //Added for handling shadowaccounts, refactor into other store
+      properties: ["data", "token", "shadowAccount", "username", "user"],
       storage: window.localStorage,
     });
   }
