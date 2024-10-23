@@ -1,4 +1,4 @@
-import useStackNavigator from "@vuo/utils/StackNavigator";
+import useStackNavigator from "@vuo/hooks/StackNavigator";
 import { NavBar } from "antd-mobile";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";

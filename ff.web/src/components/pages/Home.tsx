@@ -1,6 +1,6 @@
 import Button from "../atoms/Button";
 import Page from "../templates/Page";
-import useStackNavigator from "@vuo/utils/StackNavigator";
+import useStackNavigator from "@vuo/hooks/StackNavigator";
 import Section from "../atoms/Section";
 import { useAppContext } from "@vuo/context/AppContext";
 import QuestBrowseViewModel from "@vuo/viewModels/QuestBrowseViewModel";
