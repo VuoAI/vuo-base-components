@@ -10,7 +10,7 @@ import QuestCardCategory from "@vuo/organisms/QuestCardCategory";
 import QuestLine from "@vuo/organisms/QuestLine";
 import styles from "./QuestSelection.module.scss";
 import Page from "../templates/Page";
-import useStackNavigator from "@vuo/utils/StackNavigator";
+import useStackNavigator from "@vuo/hooks/StackNavigator";
 
 const QuestSelection = observer(() => {
   const {navigateWithState} = useStackNavigator();

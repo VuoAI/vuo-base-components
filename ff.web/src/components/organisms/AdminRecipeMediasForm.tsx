@@ -11,7 +11,7 @@ import Button from "@vuo/atoms/Button"
 import RecipeMediaViewModel from '@vuo/viewModels/RecipeMediaViewModel';
 import { Step } from '@vuo/models/Step';
 import styles from "./AdminRecipeMediasForm.module.scss"
-import useArrowKeyHandler from './UseArrowKeyHandler';
+import useArrowKeyHandler from '../../hooks/ArrowKeyHandler';
 
 const AdminRecipeMediasForm = observer(() => {
   const { id } = useParams()
