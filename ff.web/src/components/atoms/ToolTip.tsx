@@ -71,10 +71,10 @@ function Tooltip({ content, children, position = 'top' }: TooltipProps) {
 
   const tooltipStyle: React.CSSProperties = {
     position: 'absolute',
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    color: 'white',
-    padding: '5px 10px',
-    borderRadius: '4px',
+    backgroundColor: 'var(--surface-secondary)',
+    color: 'var(--text-primary)',
+    padding: 'var(--space-4) var(--space-8)',
+    borderRadius: 'var(--radius-4)',
     fontSize: '14px',
     zIndex: 1000,
     width: '200px',

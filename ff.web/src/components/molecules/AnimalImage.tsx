@@ -46,37 +46,43 @@ const AnimalImage: React.FC<AnimalImageProps> = observer(({ animal, onGuess, dev
 
     if (!userGuess) return;
 
+    // Get the computed styles for the root element
+    const rootStyles = getComputedStyle(document.documentElement);
+
+    // Extract the hex values for the brand colors
+    const brandRed = rootStyles.getPropertyValue('--surface-brand-red').trim();
+    const brandBlue = rootStyles.getPropertyValue('--surface-brand-blue').trim();
+    const brandGreen = rootStyles.getPropertyValue('--surface-brand-green').trim();
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
     ctx.moveTo(userGuess.x * canvas.width / 100, userGuess.y * canvas.height / 100);
     ctx.lineTo(actualLocation.x * canvas.width / 100, actualLocation.y * canvas.height / 100);
-    ctx.strokeStyle = 'red';
+    ctx.strokeStyle = brandRed;
     ctx.lineWidth = 2;
     ctx.stroke();
 
     // Draw blue circle for user guess
-    ctx.beginPath();
+    ctx.beginPath();  
     ctx.arc(userGuess.x * canvas.width / 100, userGuess.y * canvas.height / 100, 5, 0, 2 * Math.PI);
-    ctx.fillStyle = 'blue';
+    ctx.fillStyle = brandBlue;
     ctx.fill();
 
     // Draw green circle for actual location
     ctx.beginPath();
     ctx.arc(actualLocation.x * canvas.width / 100, actualLocation.y * canvas.height / 100, 5, 0, 2 * Math.PI);
-    ctx.fillStyle = 'green';
+    ctx.fillStyle = brandGreen;
     ctx.fill();
   };
 
   const clearCanvas = () => {
     if (!canvasRef.current) {
-      console.error('No canvasRef found');
       return;
     }
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     if (!ctx) {
-      console.error('No context found');
       return;
     }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -122,9 +128,9 @@ const AnimalImage: React.FC<AnimalImageProps> = observer(({ animal, onGuess, dev
           position: 'absolute',
           top: 0,
           left: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          color: 'white',
-          padding: '0.5rem'
+          backgroundColor: 'rgba(var(--surface-secondary) / 0.5)',
+          color: 'var(--text-primary)',
+          padding: 'var(--space-4)'
         }}>
           X: {coordinates.x}, Y: {coordinates.y}
         </div>

@@ -217,6 +217,7 @@ const CutGuessr: React.FC<{
                             <p>You will be scored based on how close you are to the correct cut of meat.</p>
                         </div>
                     }
+                    
                 >
                     <span style={{ cursor: 'pointer' }}>&#8505;</span>
                 </Tooltip>
@@ -226,6 +227,7 @@ const CutGuessr: React.FC<{
                 <div className={styles.switch_container}>
                     <span className={styles.text}>Developer Mode:</span>
                     <Switch
+                        
                         checked={developerMode}
                         onChange={() => setDeveloperMode(!developerMode)}
                     />

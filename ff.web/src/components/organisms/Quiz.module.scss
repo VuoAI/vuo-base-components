@@ -88,9 +88,9 @@
 .optionButton {
   background-color: var(--surface-secondary);
   color: var(--text-primary);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color);  
   border-radius: var(--radius-8);
-  padding: 12px 16px;
+  padding: var(--space-16);
   font-size: var(--font-size-md);
   cursor: pointer;
   transition: all var(--transition-fast) ease-in-out;
