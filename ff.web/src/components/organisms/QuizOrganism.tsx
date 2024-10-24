@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { QuizQuestion } from '../molecules/QuizQuestion';
-import { QuizResult } from '../molecules/QuizResults';
-import Button from "../atoms/Button";
+import { useState } from 'react';
+import QuizResult from '@vuo/components/molecules/QuizResults';
+import QuizQuestion from '@vuo/components/molecules/QuizQuestion';
+import Button from "@vuo/components/atoms/Button";
+import { UserAnswer } from '@vuo/models/QuizTypes';
 import styles from './Quiz.module.scss';
-import { mockQuizData } from '../../../public/static/mockQuizData';
+import mockQuizData from '../../../public/static/mockQuizData';
 
-export const QuizOrganism: React.FC = () => {
+export default function QuizOrganism() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [userAnswers, setUserAnswers] = useState<any[]>([]);
+  const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
   const [quizCompleted, setQuizCompleted] = useState(false);
 
-  const handleAnswer = (answer: any) => {
+  const handleAnswer = (answer: UserAnswer) => {
     setUserAnswers((prevAnswers) => {
       const newAnswers = [...prevAnswers];
       newAnswers[currentQuestionIndex] = answer;
@@ -41,17 +42,17 @@ export const QuizOrganism: React.FC = () => {
   return (
     <div className={styles.quizOrganism}>
       <h2 className={styles.quizTitle}>{mockQuizData.title}</h2>
-      <QuizQuestion question={currentQuestion} onAnswer={handleAnswer} />
+      <div className={styles.quizQuestionContainer}>
+        <QuizQuestion question={currentQuestion} onAnswer={handleAnswer} />
+      </div>
       <div className={styles.quizNavigation}>
-        <Button 
-          className="btn btn-secondary" 
-          onClick={handlePrevious} 
+        <Button
+          onClick={handlePrevious}
           disabled={currentQuestionIndex === 0}
         >
           Previous
         </Button>
-        <Button 
-          className="btn btn-primary" 
+        <Button
           onClick={handleNext}
         >
           {currentQuestionIndex === mockQuizData.questions.length - 1 ? 'Finish' : 'Next'}

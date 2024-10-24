@@ -7,18 +7,21 @@ interface CustomButtonProps {
   variant?: "large" | "heavy" | "medium" | "small"; // Custom sizes
   onClick?: () => void;
   children: React.ReactNode;
+  disabled?: boolean;
 }
 
+// eslint-disable-next-line react/function-component-definition
 const Button: React.FC<CustomButtonProps> = ({
   variant = "large", // Default variant
   color = "primary", // Default color
+  disabled = false, // New disabled prop with default value
   onClick,
   children,
 }) => {
   const buttonClass = `${styles[variant]} ${styles[color]}`; // Use SCSS module
 
   return (
-    <AntDButton className={buttonClass} onClick={onClick}>
+    <AntDButton className={buttonClass} onClick={onClick} disabled={disabled}>
       {children}
     </AntDButton>
   );

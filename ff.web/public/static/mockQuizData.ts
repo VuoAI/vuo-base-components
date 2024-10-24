@@ -1,15 +1,6 @@
-// Define QuizData type here
-interface QuizData {
-  // Define the structure of QuizData here
-  // For example:
-  // questions: Array<{
-  //   question: string;
-  //   answers: string[];
-  //   correctAnswer: number;
-  // }>;
-}
+import { QuizData } from '@vuo/models/QuizTypes';
 
-export const mockQuizData: QuizData = {
+const mockQuizData: QuizData = {
   id: 'food-quiz-001',
   title: 'Delicious Food Quiz',
   questions: [
@@ -37,7 +28,9 @@ export const mockQuizData: QuizData = {
       id: 'q4',
       type: 'text-input',
       question: 'What is the main ingredient in guacamole?',
-      correctAnswer: 'Avocado',
+      correctAnswer: 'avocado',
     },
   ],
 };
+
+export default mockQuizData;
