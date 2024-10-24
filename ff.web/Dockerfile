@@ -13,19 +13,25 @@
 # COPY . /app
 
 
+Copy code
 FROM node:20.12-alpine3.18
-
 USER root
 RUN apk update
 
-RUN mkdir -p /app 
-COPY package*.json /app/
-
+# Set working directory
 WORKDIR /app
 
-RUN npm install
-COPY . /app
+# Copy package.json and lock files from the build context
+COPY ./package*.json ./
 
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the source code
+COPY . .
+
+# Expose the port your app will use
 EXPOSE 7702
 
-CMD ["npm", "run", "start"]
+# Start the application
+CMD ["npm", "start"]
