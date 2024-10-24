@@ -1,0 +1,64 @@
+{
+  "miniGames": [],
+  "media": {
+    "image": "static/recipeimages/spaghetti_and_meatballs.webp",
+    "video": ""
+  },
+  "tags": [{
+    "title": "Italian Cousines"
+  }],
+  "name": "",
+  "recipe": {
+    "description": "Indulge in the timeless comfort of Spaghetti and Meatballs! Juicy meatballs and rich tomato sauce atop al dente spaghetti for a classic feast any day.",
+    "resources": [
+      {
+        "name": "Meat",
+        "quantity": "500",
+        "unit": "g"
+      }
+    ],
+    "name": "Spaghetti and meatballs",
+    "servings": {
+      "size": null,
+      "for": 3
+    },
+    "state": "NOT_STARTED",
+    "steps": [
+      {
+        "text": "Grate enough white bread to make 1/3 cup of breadcrumbs.",
+        "skills": [
+          {
+            "name": "Grating",
+            "challenge_rating": 1,
+            "skill_category": "Food Preparation",
+            "difficulty_level": "Beginner",
+            "id": "f3d5c959-7adf-4856-af4f-310d13d46d0d"
+          }
+        ],
+        "tools": [
+          {
+            "id": "526ee8f9-0369-44a9-80ca-86ff72fa880c",
+            "name": "Box grater",
+            "icon": "box_grater"
+          }
+        ],
+        "resources": [
+          {
+            "id": "de9056f6-732c-47b4-8f45-815c092d144c",
+            "name": "1 white bread",
+            "unit": "",
+            "quantity": ""
+          }
+        ],
+        "media": {
+          "image": "",
+          "video": "/spaghetti/step_1.mov"
+        },
+        "id": "ccb9cf4e-b4e4-4d91-86b8-494310319beb",
+        "attachable": "false"
+      }
+    ]
+  },
+  "state": "NOT_STARTED",
+  "id": "00477a48-556c-4e51-94f7-d4b92d0c8af1"
+}

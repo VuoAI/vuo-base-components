@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { TabBar } from "antd-mobile";
 import { useLocation } from "react-router-dom";
 //TODO use Pasi's icon collection

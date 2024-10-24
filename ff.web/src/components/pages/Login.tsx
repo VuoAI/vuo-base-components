@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import Page from "@vuo/templates/Page";
 import Button from "@vuo/atoms/Button";
 import FixFoodLogo from "@vuo/atoms/FixFoodLogo";

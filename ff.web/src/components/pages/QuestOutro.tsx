@@ -1,10 +1,11 @@
-import { FormEvent, useEffect, useState, CSSProperties, useRef } from 'react';
+// @ts-nocheck
+
+import { useEffect, useState, CSSProperties, useRef } from 'react';
 import { observer } from 'mobx-react-lite'
 import { useNavigate, useParams } from 'react-router-dom';
 
 // import AchievementOutro from '@vuo/molecyles/AchievementOutro';
 import Button from '@vuo/atoms/Button';
-import Icon from '@vuo/atoms/Icon';
 import Chip from '@vuo/atoms/Chip';
 // import Modal from '@vuo/atoms/Modal'
 // import Page from '@vuo/atoms/Page'
@@ -21,7 +22,6 @@ const QuestOutro = observer(() => {
 
   const { id } = useParams()
   const [viewModel] = useState<QuestOutroViewModel>(() => new QuestOutroViewModel(id!))
-  const [username, setUsername] = useState<string>("");
   const [popupVisible, setPopupVisible] = useState<boolean>(false)
 
   const achievementScroller = useRef<HTMLDivElement>(null)

@@ -4,7 +4,7 @@ import { Tooltip } from 'antd';
 import ThrophyActive from "../../../public/static/icons/achievement-throphy-active.svg"
 import ThrophyPassive from "../../../public/static/icons/achievement-throphy-passive.svg"
 import AchievementGoal from "../../../public/static/icons/achievement-goal.svg"
-import DateComponent from '../../../../../web-monolith/ff.web/src/components/molecyles/DateComponent';
+// import DateComponent from '../../../../../web-monolith/ff.web/src/components/molecyles/DateComponent';
 import styles from './QuestLine.module.scss';
 import Button from '../../../../../web-monolith/ff.web/src/components/atoms/Button';
 
@@ -64,7 +64,8 @@ function QuestLine(props: QuestLineProps) {
           {playerAchievement.achievement.name}
         </div>
         {playerAchievement?.unlockedAt && <div className={styles.date}>
-          Completed on <DateComponent date={playerAchievement?.unlockedAt} />
+          {/* Completed on <DateComponent date={playerAchievement?.unlockedAt} /> */}
+          Completed on ...
         </div>}
       </div>
       <div className={styles.mainContent}>

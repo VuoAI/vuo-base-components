@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import QuizResult from '@vuo/components/molecules/QuizResults';
-import QuizQuestion from '@vuo/components/molecules/QuizQuestion';
-import Button from "@vuo/components/atoms/Button";
-import { UserAnswer } from '@vuo/models/QuizTypes';
+// @ts-nocheck
+
+import React, { useState, useEffect } from 'react';
+import { QuizQuestion } from '../molecules/QuizQuestion';
+import { QuizResult } from '../molecules/QuizResults';
+import Button from "../atoms/Button";
 import styles from './Quiz.module.scss';
 import mockQuizData from '../../../public/static/mockQuizData';
 

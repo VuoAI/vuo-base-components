@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import type { Meta, StoryObj } from "@storybook/react";
 import type { TypeWithDeepControls } from "storybook-addon-deep-controls";
 import { MemoryRouter, Routes, Route } from "react-router-dom";

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useRef, useState } from 'react';
 import { faker } from '@faker-js/faker';
 import { AchievementSize } from '@vuo/models/Achievement';

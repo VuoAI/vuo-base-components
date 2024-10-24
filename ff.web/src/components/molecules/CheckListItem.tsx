@@ -1,5 +1,5 @@
 // import Icon from '@vuo/atoms/Icon'
-import IconNames from '@vuo/models/IconTypes'
+// import IconNames from '@vuo/models/IconTypes'
 
 import style from './CheckListItem.module.scss'
 

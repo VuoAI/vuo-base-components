@@ -1,7 +1,7 @@
 import useStackNavigator from "@vuo/hooks/StackNavigator";
 import { NavBar } from "antd-mobile";
 import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function Navbar({hideBackButton = false}) {
   useEffect(() => {

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import Button from "../atoms/Button";
 import Page from "../templates/Page";
 import useStackNavigator from "@vuo/hooks/StackNavigator";

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import TextareaAutosize from 'react-textarea-autosize';

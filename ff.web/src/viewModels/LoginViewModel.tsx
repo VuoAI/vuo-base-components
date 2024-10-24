@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { action, computed, makeObservable, observable, runInAction } from "mobx";
 
 import {

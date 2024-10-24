@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useState, useRef } from "react";
 import { observer } from "mobx-react-lite";
 

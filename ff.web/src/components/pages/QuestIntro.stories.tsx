@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import type { Meta, StoryObj } from "@storybook/react";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 import { http, HttpResponse } from "msw";

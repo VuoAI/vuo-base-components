@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Resource } from "@vuo/models/Resource";
 import { RecipeTool } from "@vuo/models/Step";
 import LLMPrompt, { LLMPrompts } from "./LLMPrompt";

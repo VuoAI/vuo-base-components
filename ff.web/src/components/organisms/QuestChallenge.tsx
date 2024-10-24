@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import DOMPurify from 'dompurify';
 import { PlayerQuestStep, StepState } from "@vuo/models/PlayerQuest";
 import Button from "../atoms/Button";

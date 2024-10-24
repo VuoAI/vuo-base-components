@@ -13,7 +13,6 @@ import { AchievementType } from "@vuo/models/AchievementRequirement";
 import webSocketStore from "@vuo/stores/WebSocketStore";
 import EventBus, { PlayerQuestDataChangedParameters } from "@vuo/utils/EventBus";
 import { UserGroupMembership } from "@vuo/models/UserGroupMembership";
-import { pl } from "@faker-js/faker";
 
 export default class QuestIntroViewModel extends BaseViewModel {
   private webSocketStore = webSocketStore;

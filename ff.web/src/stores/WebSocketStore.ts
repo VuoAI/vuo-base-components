@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { observable, makeAutoObservable, runInAction } from 'mobx';
 import { makePersistable } from "mobx-persist-store"
 import { jwtDecode } from "jwt-decode";

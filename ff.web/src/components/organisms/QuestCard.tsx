@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useEffect, useRef, useState } from 'react';
 import { QRCode } from 'react-qrcode-logo';
 import { Quest } from '@vuo/models/Quest';

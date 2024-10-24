@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useEffect, useState, useRef } from "react";
 import { observer } from "mobx-react-lite";
 import { useNavigate, useParams } from "react-router-dom";

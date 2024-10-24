@@ -11,7 +11,7 @@ interface ChipProps {
 
 function Chip(props: ChipProps) {
   const {
-    icon,
+    // icon,
     color = '',
     backgroundColor = '',
     className = "",

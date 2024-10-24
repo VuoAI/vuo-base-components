@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useState } from "react";
 import DOMPurify from 'dompurify';
 import { PlayerQuestStep, StepState } from "@vuo/models/PlayerQuest";

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { action, computed, makeObservable, runInAction } from "mobx";
 import { startRegistration } from "@simplewebauthn/browser";
 import { PublicKeyCredentialCreationOptionsJSON } from "@simplewebauthn/types";

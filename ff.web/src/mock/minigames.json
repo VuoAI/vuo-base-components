@@ -1,0 +1,81 @@
+[
+  {
+    "id": "E0BD4EBB-A69A-4314-922E-70236A55359B",
+    "icon": "plus-math",
+    "mainColor": "var(--green)",
+    "name": "Heat Science",
+    "text": "Mad science incoming!",
+    "type": "Experiment",
+    "requirements": {
+      "downtime": 200,
+      "ingredient": "water",
+      "skill": "B4G468A-F243-4AAB-A352-448E9FEB66F5"
+    },
+    "question": {
+      "title": "Do you wanna experiment with extreme heat?",
+      "subtitle": "Playing with lava is fun"
+    },
+    "hypothesis": {
+      "title": "How long it'll take to boil water?",
+      "minimum_value": 30,
+      "maximum_value": 600,
+      "step": 15
+    },
+    "experiment": {
+      "title": "Open the lid to check if the water is boiling",
+      "count_title": "How many times lid have been opened"
+    },
+    "result": {
+      "title": "Water was boiling when lid was opened",
+      "success_title": "It was boiling",
+      "failure_title": "It was cold as ice"
+    }
+  },
+  {
+    "id": "E0BD4EBB-A69A-4314-1123-70236A55359B",
+    "icon": "chili-pepper",
+    "mainColor": "var(--red)",
+    "name": "Spicy!",
+    "text": "Bring up the heat in the kitchen!",
+    "type": "Addition",
+    "requirements": {
+      "ingredient": "Ground beef",
+      "skill": "46e3a6c5-d4d4-4dc8-b624-7d480440e4bb"
+    },
+    "additions": {
+      "add_steps": [
+        {
+          "steps": [
+            {
+              "type": "prepare",
+              "text": "Finely chop 2 fresh red chili peppers and add it to the mixture.",
+              "skills": [
+                {
+                  "name": "Chopping",
+                  "challenge_rating": 2,
+                  "skill_category": "Knife Skills",
+                  "difficulty_level": "Intermediate"
+                }
+              ],
+              "tools": [
+                "Knife",
+                "Cutting Board"
+              ],
+              "resources": [
+                "Red chili peppers"
+              ],
+              "media": "/hot/1.webp"
+            }
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "name": "red chili peppers",
+          "unit": "units",
+          "quantity": 2
+        }
+      ]
+    }
+  }
+]

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import type { TypeWithDeepControls } from "storybook-addon-deep-controls";
 
 import getMockRecipeObject from "@vuo/mock/Mock";
 import QuestSelectCard from "./QuestSelectCard";
@@ -14,7 +13,7 @@ export default meta;
 type Story = StoryObj<typeof QuestSelectCard>;
 
 
-export const DefaultQuestSelectCard: TypeWithDeepControls<Story> = {
+export const DefaultQuestSelectCard: Story = {
   args: {
     quest: getMockRecipeObject()
   }

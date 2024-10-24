@@ -1,9 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
 import Page from "../templates/Page";
 import styles from "./MealMap.module.scss";
-import { fetchRecipes } from '@vuo/api/api';
 
-const organizeMeals = (recipes) => {
+const BASE_URL = 'http://localhost:7702/v1'
+export const fetchRecipes = async () => {
+  const response = await fetch(`${BASE_URL}/mealmap/recipes`);
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+};
+
+const organizeMeals = (recipes: any) => {
   const mealPlan = [];
   const startDate = new Date();
   startDate.setDate(startDate.getDate() + 1);
@@ -12,7 +20,7 @@ const organizeMeals = (recipes) => {
     const currentDate = new Date(startDate);
     currentDate.setDate(startDate.getDate() + day);
 
-    const meals = recipes.slice(day * 3, day * 3 + 3).map((recipe, index) => ({
+    const meals = recipes.slice(day * 3, day * 3 + 3).map((recipe: any, index: number) => ({
       id: recipe._id,
       name: recipe.name || `Meal ${index + 1}`,
       description: recipe.description || `Description for Meal ${index + 1}`,
@@ -48,7 +56,7 @@ export default function MealMap() {
           <div key={index} className={styles.dayPlan}>
             <h3>{dayPlan.date}</h3>
             <div className={styles.mealsGrid}>
-              {dayPlan.meals.map((meal) => (
+              {dayPlan.meals.map((meal: any) => (
                 <div key={meal.id} className={styles.mealBox}>
                   <strong>{meal.name}</strong>
                   <img src={meal?.image} alt={meal.name} />

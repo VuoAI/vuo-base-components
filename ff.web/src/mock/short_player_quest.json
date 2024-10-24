@@ -1,0 +1,117 @@
+{
+  "_id": "6656d6a6a9cd7a289b84b459",
+  "finishedAt": null,
+  "name": "Italian dinner",
+  "recipe": {
+      "_id": "6656d6a6a9cd7a289b84b45a",
+      "name": "Recipe 1",
+      "steps": [
+          {
+              "finishedAt": null,
+              "startAt": "2024-05-29T07:17:58.141Z",
+              "state": "CURRENT",
+              "_id": "6656d6a6a9cd7a289b84b454",
+              "attachable": true,
+              "resources": [
+                  {
+                      "name": "Potatoes 1",
+                      "quantity": "1",
+                      "unit": "pcs",
+                      "_id": "6656d6a6a9cd7a289b84b456"
+                  }
+              ],
+              "skills": [
+                  {
+                      "_id": "6655ce6471254e1a77270168",
+                      "name": "Combining",
+                      "challenge_rating": 10,
+                      "skill_category": "Knife",
+                      "difficulty_level": "Beginner"
+                  }
+              ],
+              "text": "Step 1",
+              "tools": [
+                  {
+                      "icon": "knife",
+                      "name": "Knife",
+                      "_id": "6656d6a6a9cd7a289b84b455"
+                  }
+              ],
+              "id": "6656d6a6a9cd7a289b84b454"
+          },
+          {
+              "finishedAt": null,
+              "startAt": null,
+              "state": "NOT_STARTED",
+              "_id": "6656d6a6a9cd7a289b84b457",
+              "attachable": true,
+              "resources": [
+                  {
+                      "name": "Milk",
+                      "quantity": "1",
+                      "unit": "litres",
+                      "_id": "6656d6a6a9cd7a289b84b458"
+                  }
+              ],
+              "skills": [
+                {
+                    "_id": "6655ce6471254e1a77270168",
+                    "name": "Mixing",
+                    "challenge_rating": 10,
+                    "skill_category": "Knife",
+                    "difficulty_level": "Beginner"
+                }
+              ],
+              "text": "Step 2",
+              "tools": [],
+              "id": "6656d6a6a9cd7a289b84b457"
+          },
+          {
+            "finishedAt": null,
+            "startAt": null,
+            "state": "NOT_STARTED",
+            "_id": "6656d6a6a9cd7a289b84b457",
+            "attachable": true,
+            "resources": [
+                {
+                    "name": "Milk",
+                    "quantity": "1",
+                    "unit": "litres",
+                    "_id": "6656d6a6a9cd7a289b84b458"
+                }
+            ],
+            "skills": [
+              {
+                  "_id": "6655ce6471254e1a77270168",
+                  "name": "Slicing",
+                  "challenge_rating": 10,
+                  "skill_category": "Knife",
+                  "difficulty_level": "Beginner"
+              }
+            ],
+            "text": "Step 3",
+            "tools": [],
+            "id": "6656d6a6a9cd7a289b84b457"
+        }
+      ],
+      "description": "Description 1",
+      "resources:": [
+        {
+          "name": "Meat",
+          "quantity": "500",
+          "unit": "g"
+        }
+      ],
+      "createdAt": "2024-05-29T07:17:58.141Z",
+      "updatedAt": "2024-05-29T07:17:58.141Z",
+      "id": "6656d6a6a9cd7a289b84b45a"
+  },
+  "startedAt": "2024-05-29T07:17:58.132Z",
+  "state": "IN_PROGRESS",
+  "tags": [],
+  "user": "6655c04d5f86e9752e307fdb",
+  "createdAt": "2024-05-29T07:17:58.141Z",
+  "updatedAt": "2024-05-29T07:17:58.141Z",
+  "__v": 0,
+  "id": "6656d6a6a9cd7a289b84b459"
+}

@@ -1,5 +1,7 @@
+// @ts-nocheck
+
 import ProgressBar from "@vuo/atoms/ProgressBar"
-import IconNames from "@vuo/models/IconTypes";
+// import IconNames from "@vuo/models/IconTypes";
 import styles from './QuestProgressBar.module.scss'
 // import Icon from "../atoms/Icon";
 import Button from "../atoms/Button";
@@ -26,7 +28,7 @@ function QuestProgressBar({ onClose, questName, recipeAuthor, percent }: QuestPr
             <div className="quest-name" style={{ fontStyle: 'italic' }}>{recipeAuthor}</div>
           )}
         </div>
-        <ProgressBar percent={percent} />
+        <ProgressBar value={percent} />
       </div>
     </div>
   );

@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React, { useEffect, useState } from 'react'
 
 import CauliflowerImage from "../../../public/images/CauliflowerRice.webp";

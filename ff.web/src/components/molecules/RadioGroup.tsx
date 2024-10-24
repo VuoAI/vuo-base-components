@@ -7,7 +7,7 @@ interface RadioGroupProps {
   onChange: (value: string) => void;
 }
 
-const RadioGroup: React.FC<RadioGroupProps> = ({ options, selectedValue, onChange, children }) => {
+const RadioGroup: React.FC<RadioGroupProps> = ({ options, selectedValue, onChange }) => {
   return (
     <div className={styles.radioGroup}>
       {options.map((option) => (

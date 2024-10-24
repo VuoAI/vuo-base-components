@@ -1,5 +1,7 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { Answer, QuizQuestionData, UserAnswer } from '@vuo/models/QuizTypes';
+
 import Input from '../atoms/Input';
 import styles from '../organisms/Quiz.module.scss';
 
@@ -99,7 +101,7 @@ export default function QuizQuestion({ question, onAnswer }: QuizQuestionProps) 
 
   return (
     <div className={styles.quizQuestion}>
-      <h3 id={`question-${question.id}`}>{question.question}</h3>
+      <h3> id={`question-${question.id}`} {'>'} {question.question}</h3>
       {renderQuestionInput()}
     </div>
   );

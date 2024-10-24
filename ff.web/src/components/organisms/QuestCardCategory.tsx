@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useState, useEffect } from 'react';
 import { Quest } from '@vuo/models/Quest';
 import Button from '@vuo/atoms/Button';

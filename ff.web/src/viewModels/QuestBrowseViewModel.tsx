@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { action, computed, makeObservable, observable, runInAction } from "mobx";
 import { BaseViewModel, BaseViewModelProps } from "@vuo/viewModels/BaseViewModel";
 

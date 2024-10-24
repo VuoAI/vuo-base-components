@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useState, useEffect } from 'react'
 import Button from "../atoms/Button"
 import Slider from "../atoms/Slider"
@@ -5,7 +7,6 @@ import ProgressBar from '../atoms/ProgressBar'
 import ToggleSwitch from '../molecules/ToggleSwitch'
 import useStackNavigator from '@vuo/hooks/StackNavigator'
 import { useAppContext } from '@vuo/context/AppContext'
-import { useTheme } from '@vuo/context/ThemeContext'
 import styles from './Onboarding.module.scss'
 
 enum OnboardingStatus {

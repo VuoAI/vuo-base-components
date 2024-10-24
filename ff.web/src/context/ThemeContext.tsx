@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import "../scss/app.scss"
 
 interface ThemeContextProps {

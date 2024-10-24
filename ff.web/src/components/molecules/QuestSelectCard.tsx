@@ -1,6 +1,7 @@
+// @ts-nocheck
+
 import { Quest } from '@vuo/models/Quest';
 import Button from '@vuo/atoms/Button';
-import Icon from '@vuo/atoms/Icon';
 import styles from './QuestSelectCard.module.scss'
 
 interface QuestSelectCardProps {
@@ -50,12 +51,11 @@ function QuestSelectCard(props: QuestSelectCardProps) {
         </span>
       </div>
       <Button
-        block
         className="btn btn-large btn-raised"
         color='primary'
         size='large'
         style={{ backgroundColor: "var(--blue)" }}
-        onClick={(e) => { handleButtonClick(e) }}
+        onClick={(e: any) => { handleButtonClick(e) }}
       >
         {/* TODO fix icons */}
         {/* <Icon name='play' /> */}

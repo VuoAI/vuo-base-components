@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import IconNames from "@vuo/models/IconTypes";
+// import IconNames from "@vuo/models/IconTypes";
 import Chip from "./Chip";
-import Icon from "./Icon";
+// import Icon from "./Icon";
 
 const meta: Meta<typeof Chip> = {
   title: "Atoms/Chip",
@@ -20,7 +20,7 @@ export const Skill: Story = {
 
 export const XPChipWithIcon: Story = {
   args: {
-    children: <div><Icon name={IconNames.ChefKnife} />Knife</div>,
+    children: <div>Knife</div>,
   },
 };
 

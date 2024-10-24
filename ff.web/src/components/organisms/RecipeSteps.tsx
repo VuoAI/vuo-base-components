@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { Key, useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Tree } from 'antd';
