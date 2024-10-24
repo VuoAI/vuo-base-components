@@ -2,7 +2,7 @@ import { TabBar } from "antd-mobile";
 import { useLocation } from "react-router-dom";
 //TODO use Pasi's icon collection
 import { HomeOutlined, ShoppingCartOutlined, UserOutlined, CoffeeOutlined, QuestionOutlined } from '@ant-design/icons';
-import useStackNavigator from "@vuo/utils/StackNavigator";
+import useStackNavigator from "@vuo/hooks/StackNavigator";
 import { useAppContext } from "@vuo/context/AppContext";
 
 
