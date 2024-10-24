@@ -21,7 +21,8 @@ RUN mkdir -p /app && pwd && ls -la
 WORKDIR /app
 
 # Copy package.json and package-lock.json from the build context
-COPY package*.json ./
+# COPY package*.json ./
+COPY package*.json /app/
 
 # Install dependencies
 RUN npm install
