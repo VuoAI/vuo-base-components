@@ -12,8 +12,6 @@
 # RUN npm install
 # COPY . /app
 
-
-Copy code
 FROM node:20.12-alpine3.18
 USER root
 RUN apk update
