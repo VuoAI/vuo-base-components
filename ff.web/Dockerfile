@@ -13,14 +13,15 @@
 # COPY . /app
 
 FROM node:20.12-alpine3.18
-USER root
-RUN apk update
+
+# Print current directory for debugging
+RUN mkdir -p /app && pwd && ls -la
 
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and lock files from the build context
-COPY ./package*.json ./
+# Copy package.json and package-lock.json from the build context
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
