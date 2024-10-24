@@ -1,13 +1,14 @@
 import styles from "./Avatar.module.scss";
 
-export const Avatar = () => {
+interface AvatarProps {
+  src: string;
+  alt: string;
+}
+
+export const Avatar = ({ src, alt }: AvatarProps) => {
   return (
     <div className={styles.avatar}>
-      <img
-        className={styles.avatar__image}
-        src="https://placehold.co/50x50"
-        alt=""
-      />
+      <img className={styles.avatar__image} src={src} alt={alt} />
     </div>
   );
 };

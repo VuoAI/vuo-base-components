@@ -2,7 +2,7 @@ import { ThemeContext } from "@vuo/context/ThemeContext";
 import useStackNavigator from "@vuo/hooks/StackNavigator";
 import Page from "@vuo/templates/Page";
 import { useContext, useEffect, useState } from "react";
-import { Avatar } from "../atoms/Avatar/Avatar";
+import { Avatar } from "../atoms/Avatar";
 
 import styles from "./ProfilePage.module.scss";
 
@@ -25,10 +25,10 @@ const ProfilePage = function () {
   return (
     <Page>
       <div className={styles.profilePage__avatar}>
-        <Avatar />
+        <Avatar src="https://placehold.co/50x50" alt="Image profile" />
         <div className={styles.profilePage__avatarInfo}>
-          <p>Shawn</p>
-          <p>Umami Master</p>
+          <p className={styles.profilePage__avatarInfo__name}>Shawn</p>
+          <p className={styles.profilePage__avatarInfo__role}>Umami Master</p>
         </div>
       </div>
       {/* {profileData && (

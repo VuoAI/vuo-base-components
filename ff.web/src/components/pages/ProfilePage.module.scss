@@ -9,4 +9,13 @@
     display: flex;
     flex-direction: column;
   }
+
+  &__avatarInfo__name {
+    font-size: 1.5rem;
+  }
+
+  &__avatarInfo__role {
+    font-size: 1rem;
+    color: var(--adm-color-yellow);
+  }
 }
