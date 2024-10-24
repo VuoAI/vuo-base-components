@@ -8,24 +8,28 @@ import { GroupMembershipModel } from '../models/userGroupMembershipModel';
 
 const createPlayerQuest = async (req: Request, res: Response) => {
   const { id, scope }: { id: string; scope: number } = req.body;
+  console.log("debug input", id, scope)
   try {
     let existingQuest = await PlayerQuest.findOne({ user: req.user.id, quest: id })
     if (existingQuest) {
       res.status(409).json({ message: 'Already playing this quest' })
       return
     }
-
     const quest = await Quest.findById(id)
     if (!quest) {
       res.status(404).send({ message: 'Quest not found' })
       return
     }
+    console.log("debug quest", quest)
 
     const recipe = await Recipe.findById(quest!.recipe)
+    console.log("debug recipe", quest.recipe)
 
     const playerQuestSteps = recipe!.steps.map(step => ({
       ...step
     }));
+
+
 
     const user = await User.findById(req.user.id)
       .populate<{ activeUserGroup: UserGroup }>('activeUserGroup');

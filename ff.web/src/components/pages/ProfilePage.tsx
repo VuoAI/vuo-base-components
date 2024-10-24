@@ -3,7 +3,7 @@ import Button from "@vuo/atoms/Button";
 import { ThemeContext } from "@vuo/context/ThemeContext";
 import { useContext, useEffect, useState } from "react";
 import { AddSquareOutline } from "antd-mobile-icons";
-import useStackNavigator from "@vuo/utils/StackNavigator";
+import useStackNavigator from "@vuo/hooks/StackNavigator";
 
 
 

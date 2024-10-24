@@ -13,6 +13,7 @@ import { AchievementType } from "@vuo/models/AchievementRequirement";
 import webSocketStore from "@vuo/stores/WebSocketStore";
 import EventBus, { PlayerQuestDataChangedParameters } from "@vuo/utils/EventBus";
 import { UserGroupMembership } from "@vuo/models/UserGroupMembership";
+import { pl } from "@faker-js/faker";
 
 export default class QuestIntroViewModel extends BaseViewModel {
   private webSocketStore = webSocketStore;
@@ -148,23 +149,28 @@ export default class QuestIntroViewModel extends BaseViewModel {
     if (!this.quest) return;
 
     // TODO: Perhaps this can be done in client and just call this later?
-    const playerQuest = await this.postData<PlayerQuest>("v1/playerQuests", { id: this.quest.id })
-    if (playerQuest) {
-      TagManager.dataLayer({
-        dataLayer: {
-          event: "quest_started",
-          playerQuest: { ...playerQuest },
-        },
-      });
-      runInAction(() => {
-        this.playerQuest = playerQuest
-      })
-      if (this.webSocketStore.activeSession) {
-        this.webSocketStore.updatePlayerQuest(playerQuest)
-      } else {
-        this.webSocketStore.url = ""
+    try {
+      const playerQuest = await this.postData<PlayerQuest>("v1/playerQuests", { id: this.quest.id })
+  
+      if (playerQuest) {
+        TagManager.dataLayer({
+          dataLayer: {
+            event: "quest_started",
+            playerQuest: { ...playerQuest },
+          },
+        });
+        runInAction(() => {
+          this.playerQuest = playerQuest
+        })
+        if (this.webSocketStore.activeSession) {
+          this.webSocketStore.updatePlayerQuest(playerQuest)
+        } else {
+          this.webSocketStore.url = ""
+        }
+        this.playerQuestDataStore.addPlayerQuest(playerQuest)
       }
-      this.playerQuestDataStore.addPlayerQuest(playerQuest)
+    } catch (error) {
+      console.error("startCurrentQuest", error)
     }
   }
 

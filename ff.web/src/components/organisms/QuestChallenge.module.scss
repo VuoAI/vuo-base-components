@@ -1,0 +1,90 @@
+.challengeContainer {
+  display: grid;
+  place-items: center;
+  grid-template-areas: "inner-div";
+
+}
+
+.step {
+  background-color: #2a2a41 !important;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+.step_container {
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+  background-color: var(--bg-50);
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  grid-area: inner-div;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.skill_chip {
+  font-size: 1.5em;
+  position: fixed;
+  transform: rotate(-5deg) translate(-8px, -35px);
+}
+
+.player_chip {
+  font-size: 1.5em;
+  position: fixed;
+  right: 0px;
+  top: -12px;
+}
+
+.xp_chip {
+  position: fixed;
+  transform: rotate(-5deg) translate(0px, -5px);
+}
+
+.step_video {
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.step_image {
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.step_text,
+.step_question {
+  color: var(--white);
+  font-size: 2.2em;
+  /* Typography adjustment for readability */
+  font-weight: 600;
+  display: block;
+  white-space: pre-line;
+
+  span {
+    color: var(--yellow);
+  }
+}
+
+.step_subtitle {
+  font-size: 1.5em;
+  /* Typography adjustment for readability */
+  display: flex;
+  /* Ensures items are flexibly aligned */
+  margin-top: 8px;
+}
+
+.highlight {
+  background-color: #212138 !important;
+  box-shadow: inset 0 -4px 0 0 #3634a3;
+}

@@ -3,18 +3,18 @@ import { observer } from "mobx-react-lite";
 import { useNavigate, useParams } from "react-router-dom";
 import { Howl } from 'howler';
 import QuestIntroViewModel from "@vuo/viewModels/QuestIntroViewModel";
-import ErrorBlock from "@vuo/molecyles/ErrorBlock";
+import ErrorBlock from "@vuo/molecules/ErrorBlock";
 // import Loading from "@vuo/atoms/Loading";
 import EventBus from "@vuo/utils/EventBus";
-import Page from "@vuo/atoms/Page";
+import Page from "@vuo/templates/Page";
 import QuestCard from "@vuo/organisms/QuestCard";
-import Banner from "@vuo/molecyles/Banner";
-import Picker from "@vuo/molecyles/Picker";
-import SkewedTitleList, { SkewedTitle } from "@vuo/molecyles/SkewedTitleList";
+import Banner from "@vuo/molecules/Banner";
+import Picker from "@vuo/molecules/Picker";
+import SkewedTitleList, { SkewedTitle } from "@vuo/molecules/SkewedTitleList";
 import { ChannelUser } from "@vuo/stores/WebSocketStore";
 import PlayerItem from '@vuo/organisms/PlayerItem';
 
-import soundFile from '@assets/fixfood/swishh.mp3';
+import soundFile from '@vuo/assets/sounds/swishh.mp3';
 
 const QuestIntro = observer(() => {
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ const QuestIntro = observer(() => {
       setShowCountdown(true);
       setTimeout(() => {
         setShowCountdown(false);
-        navigate(`/playerQuests/${viewModel.playerQuest!.id}/play/`);
+        navigate(`/home/quests/${viewModel.playerQuest!.id}/play/`);
       }, 2000);
     }
     viewModel.getGroupMemberships();

@@ -1,0 +1,65 @@
+.container {
+  align-items: center;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  transition: background-color 0.1s ease;
+}
+
+.container:active {
+  background-color: var(--gray-700);
+}
+
+.container_checked {
+  background-color: var(--blue);
+  transition: background-color 0.1s ease;
+}
+
+.icon_container {
+  background-color: var(--gray-500);
+  border-radius: 9999px;
+  height: 32px;
+  margin: 8px 0px 8px 8px;
+  padding: 4px;
+  width: 32px;
+}
+
+.check_container {
+  height: 40px;
+  padding: 4px;
+  margin: 8px 16px 8px 8px;
+  width: 40px;
+}
+
+.nonchecked {
+  border: 2px dashed white;
+  border-radius: 50%;
+  transition: background-color 0.1s ease;
+}
+
+.checked {
+  background-color: var(--white);
+  border-radius: 50%;
+  transition: background-color 0.1s ease;
+}
+
+.subtitle {
+  color: var(--white);
+  font-size: 1.3em;
+  font-weight: 400;
+  line-height: 140%;
+  margin-left: 8px;
+}
+
+.title {
+  background-color: var(--gray-500);
+  border-radius: 8px;
+  color: var(--white);
+  display: inline;
+  font-size: .95em;
+  font-weight: 600;
+  line-height: 140%;
+  margin-left: 8px;
+  padding: 1px 6px;
+  text-transform: uppercase;
+}
