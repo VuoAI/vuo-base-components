@@ -1,6 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
-import { Recipe } from "@vuo/models/Recipe";
+
+import { Recipe        } from "@vuo/models/Recipe";
 import { HighlightType } from "@vuo/models/Step";
+
+// import { HighlightType } from '@vuo/models/Step';
+// import { HighlightType } from "../../src/models/Step";
 
 const mockupRecipe: Recipe = {
     "id": "66c6d79741c1bb7bd0de5272",
@@ -377,7 +381,7 @@ const mockupRecipe: Recipe = {
                     "media": {
                         "image": "https://recipemedia.fra1.cdn.digitaloceanspaces.com/PancakeWorld/PancakeChallenge1.png"
                     },
-                    "highlight": HighlightType.Challenge
+                    "highlight": "challenge" as HighlightType // Changed from HighlightType.Challenge to "challenge"
                 },
                 {
                     "attachable": false,
@@ -393,7 +397,7 @@ const mockupRecipe: Recipe = {
                     "media": {
                         "image": "https://recipemedia.fra1.cdn.digitaloceanspaces.com/PancakeWorld/PancakeChallenge2.png"
                     },
-                    "highlight": HighlightType.Challenge
+                    "highlight": "challenge" as HighlightType // Changed from HighlightType.Challenge to "challenge"
                 },
                 {
                     "attachable": false,
@@ -409,7 +413,7 @@ const mockupRecipe: Recipe = {
                     "media": {
                         "image": "https://recipemedia.fra1.cdn.digitaloceanspaces.com/PancakeWorld/PancakeChallenge3.png"
                     },
-                    "highlight": HighlightType.Challenge
+                    "highlight": "challenge" as HighlightType // Changed from HighlightType.Challenge to "challenge"
                 },
                 {
                     "attachable": false,
@@ -425,7 +429,7 @@ const mockupRecipe: Recipe = {
                     "media": {
                         "image": "https://recipemedia.fra1.cdn.digitaloceanspaces.com/PancakeWorld/PancakeChallenge4.png"
                     },
-                    "highlight": HighlightType.Challenge
+                    "highlight": "challenge" as HighlightType // Changed from HighlightType.Challenge to "challenge"
                 }
             ],
             "text": "Do you want to learn how to flip pancakes?",
@@ -434,7 +438,7 @@ const mockupRecipe: Recipe = {
             "media": {
                 "image": "https://recipemedia.fra1.cdn.digitaloceanspaces.com/PancakeWorld/PancakeChallengeQuestion.png"
             },
-            "highlight": HighlightType.Challenge
+            "highlight": "challenge" as HighlightType // Changed from HighlightType.Challenge to "challenge"
         },
         {
             "attachable": false,
