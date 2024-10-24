@@ -7,13 +7,13 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import { SafeArea } from "antd-mobile";
 import Login from "./components/pages/Login";
 import ShoppingCart from "./components/pages/ShoppingCart";
 import ProfilePage from "./components/pages/ProfilePage";
 import MealMap from "./components/pages/MealMap";
 import Home from "./components/pages/Home";
 import { ThemeProvider } from "./context/ThemeContext";
-import { SafeArea } from "antd-mobile";
 import Navbar from "./components/organisms/Navbar";
 import BottomNavigation from "./components/organisms/BottomNavigation";
 import NotFoundPage from "./components/pages/NotFoundPage";
@@ -22,14 +22,15 @@ import FlavourFlowPage from './components/pages/FlavourFlowPage';
 import FlavourFlowResultPage from './components/pages/FlavourFlowResultPage';
 import OnboardingFlow from './components/organisms/Onboarding';
 import { AppContextProvider } from './context/AppContext';
+import Minigames from './components/pages/Minigames';
 import QuestIntro from './components/pages/QuestIntro';
 import QuestPlay from './components/pages/QuestPlay';
 import QuestOutro from './components/pages/QuestOutro';
 
+
 const queryClient = new QueryClient();
-const App = () => {
+function App() {
   return (
-    <>
     <AppContextProvider>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider>
@@ -51,6 +52,7 @@ const App = () => {
                   <Route path='/flavour-flow' element={<FlavourFlowPage />} />
                   <Route path='/flavour-flow/results' element={<FlavourFlowResultPage />} />
                   <Route path='/onboarding' element={<OnboardingFlow />} />
+                  <Route path='/minigames' element={<Minigames />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Route>
                 {/* <Route>
@@ -63,9 +65,8 @@ const App = () => {
           </ThemeProvider>
         </QueryClientProvider>
       </AppContextProvider>
-    </>
   );
-};
+}
 
 
 export default App;

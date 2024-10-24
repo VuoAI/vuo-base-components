@@ -1,23 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Answer, QuizQuestionData, UserAnswer } from '@vuo/models/QuizTypes';
 import Input from '../atoms/Input';
 import styles from '../organisms/Quiz.module.scss';
 
-interface QuizQuestionProps {
-  question: {
-    id: string;
-    type: string;
-    question: string;
-    options?: string[];
-    min?: number;
-    max?: number;
-  };
-  onAnswer: (answer: any) => void;
+export interface QuizQuestionProps {
+  question: QuizQuestionData;
+  onAnswer: (answer: UserAnswer) => void;
 }
 
-export const QuizQuestion: React.FC<QuizQuestionProps> = ({ question, onAnswer }) => {
-  const [answer, setAnswer] = useState<string | number>('');
+export default function QuizQuestion({ question, onAnswer }: QuizQuestionProps) {
+  const [answer, setAnswer] = useState<Answer>('');
+  const [inputValue, setInputValue] = useState<string>('');
 
-  const handleAnswer = (value: string | number) => {
+  const handleAnswer = (value: Answer) => {
     setAnswer(value);
     onAnswer({ questionId: question.id, answer: value });
   };
@@ -44,12 +39,12 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({ question, onAnswer }
           </div>
         );
       case 'single-choice':
-      case 'multiple-choice':
         return (
-          <div className={styles.optionsContainer} role="radiogroup" aria-labelledby={`question-${question.id}`}>
-            {question.options?.map((option, index) => (
+        <div className={styles.optionsContainer} role="radiogroup" aria-labelledby={`question-${question.id}`}>
+            {question.options?.map((option) => (
               <button
-                key={index}
+                type="button"
+                key={option.toString()}
                 className={`${styles.optionButton} ${answer === option ? styles.selected : ''}`}
                 onClick={() => handleAnswer(option)}
                 aria-checked={answer === option}
@@ -60,12 +55,41 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({ question, onAnswer }
             ))}
           </div>
         );
+      case 'multiple-choice':
+        return (
+          <div className={styles.optionsContainer} role="group" aria-labelledby={`question-${question.id}`}>
+            {question.options?.map((option) => {
+              const isSelected = Array.isArray(answer) && (answer as string[]).includes(option);
+              return (
+                <button
+                  type="button"
+                  key={option.toString()}
+                  className={`${styles.optionButton} ${isSelected ? styles.selected : ''}`}
+                  onClick={() => {
+                    const newAnswer = Array.isArray(answer) ? answer : [];
+                    const updatedAnswer = isSelected
+                      ? newAnswer.filter((item) => item !== option)
+                      : [...newAnswer, option];
+                    handleAnswer(updatedAnswer as Answer);
+                  }}
+                  aria-checked={isSelected}
+                  role="checkbox"
+                >
+                  {option}
+                </button>
+              );
+            })}
+          </div>
+        );
       default:
         return (
           <Input 
             className={styles.textInput}
-            onChange={(e) => handleAnswer(e.target.value)} 
-            value={answer as string} 
+            onChange={(e) => {
+              handleAnswer(e.target.value.toLowerCase().trim());
+              setInputValue(e.target.value);
+            }}
+            value={inputValue} 
             placeholder="Enter your answer"
             aria-labelledby={`question-${question.id}`}
           />
@@ -75,8 +99,8 @@ export const QuizQuestion: React.FC<QuizQuestionProps> = ({ question, onAnswer }
 
   return (
     <div className={styles.quizQuestion}>
-      <h3> id={`question-${question.id}`}>{question.question}</h3>
+      <h3 id={`question-${question.id}`}>{question.question}</h3>
       {renderQuestionInput()}
     </div>
   );
-};
+}
