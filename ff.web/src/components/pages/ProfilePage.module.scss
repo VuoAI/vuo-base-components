@@ -1,0 +1,12 @@
+.profilePage {
+  &__avatar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__avatarInfo {
+    display: flex;
+    flex-direction: column;
+  }
+}

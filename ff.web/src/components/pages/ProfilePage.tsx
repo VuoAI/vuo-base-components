@@ -1,27 +1,37 @@
-import Button from "@vuo/atoms/Button";
 import { ThemeContext } from "@vuo/context/ThemeContext";
+import useStackNavigator from "@vuo/hooks/StackNavigator";
 import Page from "@vuo/templates/Page";
-import useStackNavigator from "@vuo/utils/StackNavigator";
 import { useContext, useEffect, useState } from "react";
+import { Avatar } from "../atoms/Avatar/Avatar";
+
+import styles from "./ProfilePage.module.scss";
 
 const ProfilePage = function () {
   const { toggleTheme } = useContext(ThemeContext);
-  const [profileData, setProfileData] = useState<any>(null);
+  const [profileData, setProfileData] = useState<any>(null); // Ensure it's typed correctly
   const { navigateWithState } = useStackNavigator();
 
   useEffect(() => {
     const storedProfile = localStorage.getItem("profileData");
     if (storedProfile) {
       const parsedProfile = JSON.parse(storedProfile);
-      delete parsedProfile.completedSteps;
-      setProfileData(parsedProfile);
+      delete parsedProfile.completedSteps; // Remove the completedSteps key
+      setProfileData(parsedProfile); // Set the modified profile data
     }
   }, []);
 
+  //TODO fix this creappy UI
+
   return (
     <Page>
-      <h2>Hello Person</h2>
-      {profileData && (
+      <div className={styles.profilePage__avatar}>
+        <Avatar />
+        <div className={styles.profilePage__avatarInfo}>
+          <p>Shawn</p>
+          <p>Umami Master</p>
+        </div>
+      </div>
+      {/* {profileData && (
         <div>
           <h4>Your Dietary Preferences</h4>
           {Object.entries(profileData).map(([key, value]) => {
@@ -33,21 +43,23 @@ const ProfilePage = function () {
             return (
               <div key={key} style={{ marginBottom: "1rem" }}>
                 <strong>{key.charAt(0).toUpperCase() + key.slice(1)}:</strong>
-                {Array.isArray(value) && (
+                {Array.isArray(value) ? (
                   <ul>
                     {value.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
                   </ul>
+                ) : (
+                  <p>{value}</p>
                 )}
               </div>
             );
           })}
         </div>
-      )}
+      )} */}
 
       {/* Optional Theme Button */}
-      <Button
+      {/* <Button
         variant="large"
         color="primary"
         onClick={() => {
@@ -67,7 +79,7 @@ const ProfilePage = function () {
         }}
       >
         Change Theme
-      </Button>
+      </Button> */}
     </Page>
   );
 };
