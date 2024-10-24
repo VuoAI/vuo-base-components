@@ -1,9 +1,8 @@
-/* eslint-disable no-template-curly-in-string */
 import { useState } from "react";
 import { observer } from "mobx-react-lite";
 import { Grid, Button } from "antd-mobile";
 import VirtualSear from '@vuo/components/organisms/VirtualSear';
-import mockRecipe from "@static/mockRecipe"
+import mockRecipe from '../../../public/static/mockRecipe';
 import styles from './Minigames.module.scss'
 import CutGuessr from "../organisms/CutGuessr";
 import ConversationStarter from "../organisms/ConversationStarter";
@@ -13,17 +12,27 @@ import QuizOrganism from "../organisms/QuizOrganism";
 const Minigames = observer(() => {
     const [selectedGame, setSelectedGame] = useState<string | null>(null);
 
+    const mockUserData = {
+        unlockedMinigames: [
+            "virtual-sear",
+            "cut-guessr",
+            "conversation-starter",
+            "ingredient-match",
+            "quiz"
+        ]
+    }
+
     const games = [
-        { name: "Virtual Sear", component: <VirtualSear allowPlayAgain /> },
-        { name: "Cut Guessr", component: <CutGuessr allowPlayAgain /> },
-        { name: "Conversation Starter", component: <ConversationStarter allowReplay /> },
-        { name: "Ingredient Match", component: <IngredientMatch allowReplay recipe={mockRecipe} /> },
-        { name: "Quiz", component: <QuizOrganism /> }
+        { id: "virtual-sear", name: "Virtual Sear", component: <VirtualSear allowPlayAgain /> },
+        { id: "cut-guessr", name: "Cut Guessr", component: <CutGuessr allowPlayAgain /> },
+        { id: "conversation-starter", name: "Conversation Starter", component: <ConversationStarter allowReplay /> },
+        { id: "ingredient-match", name: "Ingredient Match", component: <IngredientMatch allowReplay recipe={mockRecipe} /> },
+        { id: "quiz", name: "Quiz", component: <QuizOrganism /> }
     ];
 
-    const renderGameButtons = () => (
+    const renderGameButtons = (unlockedGames: string[]) => (
         <Grid columns={2} gap={16}>
-            {games.map((game) => (
+            {games.filter(game => unlockedGames.includes(game.id)).map((game) => (
                 <Grid.Item key={game.name}>
                     <Button
                         block
@@ -55,7 +64,7 @@ const Minigames = observer(() => {
 
     return (
         <div className={styles.minigames_container}>
-            {selectedGame ? renderSelectedGame() : renderGameButtons()}
+            {selectedGame ? renderSelectedGame() : renderGameButtons(mockUserData.unlockedMinigames)}
         </div>
     );
 });
