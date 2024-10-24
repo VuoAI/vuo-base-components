@@ -1,8 +1,8 @@
 // @ts-nocheck
 
 import React, { useState, useEffect } from 'react';
-import { QuizQuestion } from '../molecules/QuizQuestion';
-import { QuizResult } from '../molecules/QuizResults';
+import QuizQuestion from '../molecules/QuizQuestion';
+import QuizResult from '../molecules/QuizResults';
 import Button from "../atoms/Button";
 import styles from './Quiz.module.scss';
 import mockQuizData from '../../../public/static/mockQuizData';
