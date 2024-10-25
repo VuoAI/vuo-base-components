@@ -4,6 +4,10 @@ import Page from "@vuo/templates/Page";
 import { useContext, useEffect, useState } from "react";
 import { Avatar } from "../atoms/Avatar";
 
+import { PlusOutlined } from "@ant-design/icons";
+import Button from "../atoms/Button";
+import Input from "../atoms/Input";
+import Section from "../atoms/Section";
 import styles from "./ProfilePage.module.scss";
 
 const ProfilePage = function () {
@@ -31,6 +35,69 @@ const ProfilePage = function () {
           <p className={styles.profilePage__avatarInfo__role}>Umami Master</p>
         </div>
       </div>
+
+      <div>
+        <h4>Your preferences</h4>
+      </div>
+
+      <Section>
+        <h2>Diets</h2>
+
+        <div className={styles.profilePage__section__input}>
+          <Input
+            value={""}
+            placeholder="Add a diet"
+            onChange={(e) => {
+              const value = e.target.value.toLowerCase();
+              console.log("Searching for:", value);
+            }}
+            className={styles.profilePage__section__input__text}
+          />
+
+          <Button variant="medium" color="primary">
+            Add <PlusOutlined />
+          </Button>
+        </div>
+      </Section>
+
+      <Section>
+        <h2>Allergy</h2>
+        <div className={styles.profilePage__section__input}>
+          <Input
+            value={""}
+            placeholder="Add a diet"
+            onChange={(e) => {
+              const value = e.target.value.toLowerCase();
+              console.log("Searching for:", value);
+            }}
+            className={styles.profilePage__section__input__text}
+          />
+
+          <Button variant="medium" color="primary">
+            Add <PlusOutlined />
+          </Button>
+        </div>
+      </Section>
+
+      <Section>
+        <h2>Likes</h2>
+        <div className={styles.profilePage__section__input}>
+          <Input
+            value={""}
+            placeholder="Add a diet"
+            onChange={(e) => {
+              const value = e.target.value.toLowerCase();
+              console.log("Searching for:", value);
+            }}
+            className={styles.profilePage__section__input__text}
+          />
+
+          <Button variant="medium" color="primary">
+            Add <PlusOutlined />
+          </Button>
+        </div>
+      </Section>
+
       {/* {profileData && (
         <div>
           <h4>Your Dietary Preferences</h4>
