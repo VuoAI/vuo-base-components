@@ -14,6 +14,9 @@ const ProfilePage = function () {
   const { toggleTheme } = useContext(ThemeContext);
   const [profileData, setProfileData] = useState<any>(null); // Ensure it's typed correctly
   const { navigateWithState } = useStackNavigator();
+  const [diets, setDiets] = useState<string>("");
+  const [allergies, setAllergies] = useState<string>("");
+  const [likes, setLikes] = useState<string>("");
 
   useEffect(() => {
     const storedProfile = localStorage.getItem("profileData");
@@ -45,11 +48,10 @@ const ProfilePage = function () {
 
         <div className={styles.profilePage__section__input}>
           <Input
-            value={""}
+            value={diets}
             placeholder="Add a diet"
             onChange={(e) => {
-              const value = e.target.value.toLowerCase();
-              console.log("Searching for:", value);
+              setDiets(e.target.value);
             }}
             className={styles.profilePage__section__input__text}
           />
@@ -64,11 +66,10 @@ const ProfilePage = function () {
         <h2>Allergy</h2>
         <div className={styles.profilePage__section__input}>
           <Input
-            value={""}
+            value={allergies}
             placeholder="Add a diet"
             onChange={(e) => {
-              const value = e.target.value.toLowerCase();
-              console.log("Searching for:", value);
+              setAllergies(e.target.value);
             }}
             className={styles.profilePage__section__input__text}
           />
@@ -83,11 +84,10 @@ const ProfilePage = function () {
         <h2>Likes</h2>
         <div className={styles.profilePage__section__input}>
           <Input
-            value={""}
+            value={likes}
             placeholder="Add a diet"
             onChange={(e) => {
-              const value = e.target.value.toLowerCase();
-              console.log("Searching for:", value);
+              setLikes(e.target.value);
             }}
             className={styles.profilePage__section__input__text}
           />
